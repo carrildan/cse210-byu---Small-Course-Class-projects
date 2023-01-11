@@ -6,7 +6,7 @@ class Program
     {
         //generate a random number
         Random randomGenerator = new Random();
-        int magicNumber = randomGenerator.Next(1, 50);
+        int magicNumber = randomGenerator.Next(1, 101);
 
 
         //keep track of user attempts
