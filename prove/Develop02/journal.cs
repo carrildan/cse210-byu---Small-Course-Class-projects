@@ -11,19 +11,27 @@ public class Journal
     public void Prompt()
     {
         //adding a list of questions for the journal
-        string question1 = "Describe a spiritual experience you had today:";
-        string question2 = "Did you meet a different or special person today?";
-        string question3 = "Did you meet a different or special place today?";
+        string question1 = "Describe a spiritual experience you had today: ";
+        string question2 = "Did you meet a different or special person today? ";
+        string question3 = "Did you meet a different or special place today? ";
         _questions.Add(question1);
         _questions.Add(question2);
         _questions.Add(question3);
-
-
-        foreach (string q in _questions)
-        {
-            Console.WriteLine(q);
-        }
-
     }
-    
+
+
+    //method to get and add user entries
+    public void Entries()
+    {
+        Console.Write(_questions[0]);
+        string userQuestion1 = Console.ReadLine();
+
+
+        Console.Write(_questions[1]);
+        string userQuestion2 = Console.ReadLine();
+
+
+        Console.Write(_questions[2]);
+        string userQuestion3 = Console.ReadLine();
+    }
 }
