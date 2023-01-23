@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 public class Journal
 {
     //member variables. list for questions creation and user entries prompt
@@ -21,13 +22,13 @@ public class Journal
     //method to get and add user entries
     public void Entries()
     {
-        Console.WriteLine("ss");
+        Console.WriteLine(_questions[0]);
         string userQuestion1 = Console.ReadLine();
 
-
+        Console.WriteLine(_questions[1]);
         string userQuestion2 = Console.ReadLine();
 
-
+        Console.WriteLine(_questions[2]);
         string userQuestion3 = Console.ReadLine();
     }
 } 
