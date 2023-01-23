@@ -1,12 +1,10 @@
-using System;
-
 public class Journal
 {
     //member variables. list for questions creation and user entries prompt
     public List<string>_questions = new List<string>(); 
     public List<string>_entry = new List<string>();
-    
 
+    
     //method to create the questions
     public void Prompt()
     {
@@ -23,15 +21,13 @@ public class Journal
     //method to get and add user entries
     public void Entries()
     {
-        Console.Write(_questions[0]);
+        Console.WriteLine("ss");
         string userQuestion1 = Console.ReadLine();
 
 
-        Console.Write(_questions[1]);
         string userQuestion2 = Console.ReadLine();
 
 
-        Console.Write(_questions[2]);
         string userQuestion3 = Console.ReadLine();
     }
-}
+} 
