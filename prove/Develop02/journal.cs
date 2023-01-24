@@ -22,13 +22,34 @@ public class Journal
     //method to get and add user entries
     public void Entries()
     {
-        Console.WriteLine(_questions[0]);
-        string userQuestion1 = Console.ReadLine();
+        string question1 = (_questions[0]);
+        Console.WriteLine(question1);
+        string userEntry1 = Console.ReadLine();
 
-        Console.WriteLine(_questions[1]);
-        string userQuestion2 = Console.ReadLine();
 
-        Console.WriteLine(_questions[2]);
-        string userQuestion3 = Console.ReadLine();
+        string question2 = (_questions[1]);
+        Console.WriteLine(question2);
+        string userEntry2 = Console.ReadLine();
+
+
+        string question3 = (_questions[2]);
+        Console.WriteLine(question3);
+        string userEntry3 = Console.ReadLine();
+
+
+        //stores user´s entries into the _entry list
+        _entry.Add(userEntry1);
+        _entry.Add(userEntry2);
+        _entry.Add(userEntry3);
+    }
+
+
+    //method for menu option 3(display) display the questions to the user
+    public void Display()
+    {
+        Console.WriteLine($"24/01/23 - {_questions[0]} \n{_entry[0]}");
+        Console.WriteLine($"24/01/23 - {_questions[1]} \n{_entry[1]}");
+        Console.WriteLine($"24/01/23 - {_questions[2]} \n{_entry[2]}");
+       
     }
 } 
