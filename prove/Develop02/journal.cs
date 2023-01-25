@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 public class Journal
 {
     //member variables. list for questions creation and user entries prompt
@@ -19,7 +20,7 @@ public class Journal
     }
 
 
-    //method to get and add user entries
+    //method to get and add user entries along the questions
     public void Entries()
     {
         string question1 = (_questions[0]);
@@ -37,19 +38,65 @@ public class Journal
         string userEntry3 = Console.ReadLine();
 
 
-        //stores user´s entries into the _entry list
-        _entry.Add(userEntry1);
-        _entry.Add(userEntry2);
-        _entry.Add(userEntry3);
+        //stores questions and user´s entries into the _entry list
+        _entry.Add(question1 + userEntry1);
+        _entry.Add(question2 + userEntry2);
+        _entry.Add(question3 + userEntry3);
     }
 
 
     //method for menu option 3(display) display the questions to the user
     public void Display()
     {
-        Console.WriteLine($"24/01/23 - {_questions[0]} \n{_entry[0]}");
-        Console.WriteLine($"24/01/23 - {_questions[1]} \n{_entry[1]}");
-        Console.WriteLine($"24/01/23 - {_questions[2]} \n{_entry[2]}");
-       
+        //iterate the entries and displays the content
+        foreach(string line in _entry)
+        {
+            Console.WriteLine(line);
+        }
+        /*
+        string entry1 = ($"24/01/23 - {_entry[0]} \n{_entry[1]}");
+        string entry2 = ($"24/01/23 - {_questions[1]} \n{_entry[1]}");
+        string entry3 = ($"24/01/23 - {_questions[2]} \n{_entry[2]}");   
+        Console.WriteLine(entry1 + entry2 + entry3);*/
     }
+
+
+    /*method that saves the user´s entries as a file
+    prompting for the name of the file*/
+    public void Save()
+    {
+        
+        //var stringList = String.Join(",", Display().ToArray());
+        //Console.Write(stringList);
+
+
+        Console.Write("Give a name to your file: ");
+        string fileName = Console.ReadLine();
+
+        
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            //convert the list into string
+            //I found this approach in YouTube
+            var stringList = String.Join("\n", _entry.ToArray());
+            outputFile.WriteLine( stringList);
+        }
+    }
+    
+
+    //method that reads the file
+    public void Read()
+    {
+        string fName = "teste.txt";
+        string[] lines = System.IO.File.ReadAllLines(fName);
+
+
+        foreach(string line in lines)
+        {
+            Console.WriteLine(line);
+        }
+    }
+
+
+    
 } 
