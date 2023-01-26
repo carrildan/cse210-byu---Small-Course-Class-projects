@@ -59,44 +59,4 @@ public class Journal
         string entry3 = ($"24/01/23 - {_questions[2]} \n{_entry[2]}");   
         Console.WriteLine(entry1 + entry2 + entry3);*/
     }
-
-
-    /*method that saves the user´s entries as a file
-    prompting for the name of the file*/
-    public void Save()
-    {
-        
-        //var stringList = String.Join(",", Display().ToArray());
-        //Console.Write(stringList);
-
-
-        Console.Write("Give a name to your file: ");
-        string fileName = Console.ReadLine();
-
-        
-        using (StreamWriter outputFile = new StreamWriter(fileName))
-        {
-            //convert the list into string
-            //I found this approach in YouTube
-            var stringList = String.Join("\n", _entry.ToArray());
-            outputFile.WriteLine( stringList);
-        }
-    }
-    
-
-    //method that reads the file
-    public void Read()
-    {
-        string fName = "teste.txt";
-        string[] lines = System.IO.File.ReadAllLines(fName);
-
-
-        foreach(string line in lines)
-        {
-            Console.WriteLine(line);
-        }
-    }
-
-
-    
 } 
