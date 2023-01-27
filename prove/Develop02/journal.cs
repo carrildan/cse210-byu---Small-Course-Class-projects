@@ -9,7 +9,7 @@ public class Journal
     
     //method to create the questions
     public void Prompt()
-    {
+    {   //FEEDBACK - TAKE OFF THE VARIABLES AND PUT THEM DIRECTLY INTO THE LIST
         //adding a list of questions for the journal
         string question1 = "Describe a spiritual experience you had today: ";
         string question2 = "Did you meet a different or special person today? ";
@@ -20,6 +20,7 @@ public class Journal
     }
 
 
+    // FEEDBACK - IT MUST HAVE A RANDOM FOR QUESTIONS
     //method to get and add user entries along the questions
     public void Entries()
     {
@@ -53,10 +54,6 @@ public class Journal
         {
             Console.WriteLine(line);
         }
-        /*
-        string entry1 = ($"24/01/23 - {_entry[0]} \n{_entry[1]}");
-        string entry2 = ($"24/01/23 - {_questions[1]} \n{_entry[1]}");
-        string entry3 = ($"24/01/23 - {_questions[2]} \n{_entry[2]}");   
-        Console.WriteLine(entry1 + entry2 + entry3);*/
+        
     }
 } 
