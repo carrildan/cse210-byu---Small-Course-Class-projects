@@ -2,12 +2,9 @@ using System.IO;
 using System.Collections.Generic;
 
 public class File
-{   //FEEDBACK - USING PARAMETERS 
-    //public Journal _journalFile = new Journal();
-    //public List<Journal> _file = new List<Journal>();
+{   
     public string _fileName;
     public List<string> _newFile = new List<string>();
-
 
 
     //method to save a new Journal entry
@@ -15,19 +12,12 @@ public class File
     //Save() parameter receives the attributes from Program class in option 4
     public void Save(List<string>entries)
     {
-        
-        //Console.Write(stringList);
         Console.Write("Give a name to your file: ");
         _fileName = Console.ReadLine();
 
-        
+        //creates and saves a file
         using (StreamWriter outputFile = new StreamWriter(_fileName))
         {
-            
-            //convert the list into string
-            //I found this approach in YouTube
-            //var stringList = String.Join("\n", _file.ToArray());
-            //var stringList = _file;
             foreach (var item in entries)
                 outputFile.WriteLine(item);
         }
@@ -47,9 +37,8 @@ public class File
         {
             _newFile.Add(line);
         }
-        
-
     }
+
 
     //method that displays the content in the file
     public void Display()

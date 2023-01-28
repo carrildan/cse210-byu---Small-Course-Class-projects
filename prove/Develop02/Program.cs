@@ -15,7 +15,6 @@ class Program
         File file1 = new File();
 
 
-
         //mantain prompting user for a option until chooses to exit
         int userInt = -1;
         while (userInt != 5)
@@ -35,16 +34,15 @@ class Program
             //check true or false to know what wil be displayed in option 2
             bool displayCheck = file1._newFile.Any();
             
-            //Option 1 - Write a new journal or update a journal
+            //Option 1 - Write a new journal
             if (userInt == 1)
-
             {
                 journal1.Prompt();
                 journal1.Entries();
             }
 
 
-            //Option 2 - Display the current Write journal
+            //Option 2 - Display the current journal or display from a file
             else if (userInt == 2)
             {
                 if (displayCheck == false)

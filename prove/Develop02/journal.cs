@@ -15,18 +15,9 @@ public class Journal
 
         _questions = new List<string>{"Describe a spiritual experience you had today: ", "Share a positive learning or insight you got today: ", 
         "Did you meet a different or special place today?", "Did you meet a good person today?", "Did you help somebody today? Who?"};
-
-        /*
-        string question1 = "Describe a spiritual experience you had today: ";
-        string question2 = "Did you meet a different or special person today? ";
-        string question3 = "Did you meet a different or special place today? ";
-        _questions.Add(question1);
-        _questions.Add(question2);
-        _questions.Add(question3);*/
     }
 
 
-    // FEEDBACK - IT MUST HAVE A RANDOM FOR QUESTIONS
     //method to get and add user entries along the questions
     public void Entries()
     {
@@ -53,7 +44,6 @@ public class Journal
         //iterate the entries and displays the content
         foreach(string line in _entry)
         {
-            
             Console.WriteLine(_entry);
         }
         
