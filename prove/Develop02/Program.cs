@@ -10,7 +10,7 @@ class Program
         Console.WriteLine("Please select one of the following choices:");
 
 
-        //creates a new journal (because if creates inside a conditional block I won´t have access in another block of the conditional)
+        //creates a new journal and file(because if creates inside a conditional block I won´t have access in another block of the conditional)
         Journal journal1 = new Journal();
         File file1 = new File();
 
@@ -31,7 +31,9 @@ class Program
 
 
             /* ---------------  menu conditional ----------------- */
-            
+
+            //check true or false to know what wil be displayed in option 2
+            bool displayCheck = file1._newFile.Any();
             
             //Option 1 - Write a new journal or update a journal
             if (userInt == 1)
@@ -45,8 +47,15 @@ class Program
             //Option 2 - Display the current Write journal
             else if (userInt == 2)
             {
-                //displays the current entries
-                journal1.Display();
+                if (displayCheck == false)
+                {
+                    journal1.Display();
+                }
+                else
+                {
+                    //displays the file entries
+                    file1.Display();
+                }
             }
 
 
@@ -60,7 +69,6 @@ class Program
             //Option 3 - Load a file
             else if (userInt == 3)
             {
-                file1 = new File();
                 file1.Load();
             }
             
