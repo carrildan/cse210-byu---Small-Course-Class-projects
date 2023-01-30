@@ -5,10 +5,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        //render a welcome message
+        //render a welcome message and prompts for user´s name
         Console.WriteLine("Welcome to the Journal Program!");
+        Console.Write("Please, inform your name: ");
+        string userName = Console.ReadLine();
         Console.WriteLine("Please select one of the following choices:");
-
+      
 
         //creates a new journal and file(because if creates inside a conditional block I won´t have access in another block of the conditional)
         Journal journal1 = new Journal();
@@ -24,7 +26,7 @@ class Program
             Console.WriteLine(menu);
 
             //user entry the option
-            Console.Write("What would you like to do? ");
+            Console.Write($"What would you like to do {userName}? ");
             string user = Console.ReadLine();
             userInt = int.Parse(user);
 
@@ -71,5 +73,6 @@ class Program
             }
             
         }   
+        Console.Write($"See you tomorrow, {userName}");
     }
 }
