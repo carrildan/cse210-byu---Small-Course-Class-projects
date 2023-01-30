@@ -5,8 +5,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        //render a welcome message and prompts for user´s name
+        //render a welcome message 
         Console.WriteLine("Welcome to the Journal Program!");
+
+        //EXCEEDING REQUIREMENTS: PROMPTS THE USER FOR NAME, PRINTS IT WITH OPTION AND GOOD MESSAGE.
         Console.Write("Please, inform your name: ");
         string userName = Console.ReadLine();
         Console.WriteLine("Please select one of the following choices:");
