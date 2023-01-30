@@ -44,7 +44,7 @@ public class Journal
         //iterate the entries and displays the content
         foreach(string line in _entry)
         {
-            Console.WriteLine(_entry);
+            Console.WriteLine(line);
         }
         
     }
