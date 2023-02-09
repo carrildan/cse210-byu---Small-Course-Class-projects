@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 //this class is responsible for hidden words and display the scripture
 class Word
@@ -22,30 +23,34 @@ class Word
     {
         //call random method
         Random rnd = new Random();
-        string words = _scripture.GetMultipleVerses();
-        string getWords  = words.Replace(" the ", "---");
-        foreach(char a in getWords)
-        {
-            _hiddenWords.Add(a.ToString());
-        }
-        foreach(string i in _hiddenWords)
-        {
-            Console.Write(i);
 
+        string words = _scripture.GetScriptures();
+
+        string[] splitWords = words.Split();
+        string unsplitWords = string.Join(" ",splitWords);
+
+        _hiddenWords.Add(unsplitWords);
+
+        foreach(var item in _hiddenWords)
+        {
+            Console.WriteLine(item+"\n");
         }
+        
+        
+        
+       
+
+
+
+
+
+
         //string[] splitWords = words.Split(" ");
         
 
-        
-
-        
         //int index = rnd.Next(splitWords.Length);
         //string getWords  = splitWords[index].Replace("the", "---");
        
-
-      
-
-        
 
         //int index = rnd.Next(splitWords.Length);
         //string getWords  = splitWords[index];
