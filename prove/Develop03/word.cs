@@ -24,65 +24,26 @@ class Word
         //call random method
         Random rnd = new Random();
 
-        //get the scripture
-        string words = _scripture.GetScriptures();
-        string splitWords = string.Join(" ",words);
-
-        foreach (var item in words)
+        string scripture = _scripture.GetScriptures();
+        string[] splitWords = scripture.Split(" ");
+        foreach(var item in string.Join(" ",splitWords))
         {
             _hiddenWords.Add(item.ToString());
             
         }
+        
         foreach(string item in _hiddenWords)
         {
+          
             Console.Write(item);
-        };
-        //split it into words then separete with space
-        
-        //Console.Write(words.GetType());
-        //string unsplitWords = string.Join("--",words);
-        //Console.Write(unsplitWords);
-
-        //string listWords = unsplitWords;
-        //Console.Write(listWords.GetType());
-
-    /*
-        for( i in listWords){
-            _hiddenWords.Add(i);
-            Console.Write(i);
         }
 
 
-
-        for(int i=0;i<_hiddenWords.Count;i++)
-        {
-            if(_hiddenWords[i].Contains("Nephi"))
-                _hiddenWords[i] = "Daniel";
-                Console.Write(_hiddenWords[i]);
-        }   
-
-        foreach(string item in _hiddenWords)
-        {
-            Console.WriteLine(item);
-        }  
-
-    */
-
-
-        //string[] splitWords = words.Split(" ");
         
-
-        //int index = rnd.Next(splitWords.Length);
-        //string getWords  = splitWords[index].Replace("the", "---");
-       
-
-        //int index = rnd.Next(splitWords.Length);
-        //string getWords  = splitWords[index];
-        //Console.WriteLine(splitWords);
-        //string replacer = splitWords[index].Replace(getWords,"---");
-        //_hiddenWords = replacer;
-
     }
+
+
+
 
 
     //method to display a single verse scripture
