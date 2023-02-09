@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 //this class is responsible for hidden words and display the scripture
 class Word
-{
-    private Scriptures _scripture;
+{ //TO DO: CHANGING THE _SCRITPURE ATTRIBUTE TO RECEIVE A STRING, THEN CREATE A NEW LIST TO STORE THE WORDS.
+    private string _scripture;
     //private string _hiddenWords;
     private List<string> _hiddenWords;
 
@@ -12,7 +12,7 @@ class Word
     //constructor
     public Word()
     {
-        _scripture = new Scriptures();
+        List<string> _scripture = new List<string>();
         _hiddenWords = new List<string>();
         
     }
@@ -24,22 +24,22 @@ class Word
         //call random method
         Random rnd = new Random();
 
+        //get scripture and split into words
         string scripture = _scripture.GetScriptures();
-        string[] splitWords = scripture.Split(" ");
-        foreach(var item in string.Join(" ",splitWords))
+        string[] splitWords = scripture.Split("");
+
+        //add each word to the list
+        foreach(var item in splitWords)
         {
-            _hiddenWords.Add(item.ToString());
-            
+            _hiddenWords.Add(item);
         }
+
         
         foreach(string item in _hiddenWords)
         {
-          
             Console.Write(item);
         }
 
-
-        
     }
 
 

@@ -2,10 +2,10 @@ using System;
 
 class Scriptures
 {
-    string _scripture;
-    string _multiScripture;
-    string _reference;
-    string _multipleReference;
+    private string _scripture;
+    private string _multiScripture;
+    private string _reference;
+    private string _multipleReference;
 
 
     //constructor for single verse scripture
@@ -29,32 +29,36 @@ class Scriptures
         _multiScripture = "8 And it came to pass that when my father had heard these words he was exceedingly glad, for he knew that I had been blessed of the Lord.";
 
         _reference = "1 Nephy 3:7";
+
+        _multipleReference = "1 Nephy 3:7-8";
     }
 
 
     //getter and setter for single reference
-    public void GetScriptures()
+    public string GetScriptures()
     {
-
+        return _scripture;
     }
 
 
     public void SetScriptures()
     {
+        //Word word = new Word();
 
+        //unused
     }
 
 
     //getter and setter for multiple verse scripture
-    public void GetMultipleVerses()
+    public string GetMultipleVerses()
     {
-
+        return $"{_multipleReference} - {_scripture} {_multiScripture}";
     }
 
 
     public void SetMultipleVerses()
     {
-        
+        //unused
     }
     
 
