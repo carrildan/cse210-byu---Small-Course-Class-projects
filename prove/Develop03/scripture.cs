@@ -7,7 +7,8 @@ class Scripture
    string _scripture;
 
    //attribute that stores and tracks the words of the scripture
-   List<string> _words = new List<string>();
+   //List<string> _words = new List<string>();
+   string[] _words;
 
 
    //constructor for a single verse scripture
@@ -25,33 +26,35 @@ class Scripture
 
 
    //method to hide the word
-   public void HideWords()
+   public string[] HideWords()
    {
         //split the letters into words
-        string[] words = _scripture.Split(" ");
+        _words = _scripture.Split(" ");
 
         //adding each word of the scripture into to the list so it can hide it. I WASN´T ABLE TO HANDLE HIDDING PROCESS WITHOUT ADDING IT TO A LIST.
-        foreach(string item in words)
+        foreach(string item in _words)
         {
-         _words.Add(item);
+         //_words.Add(item);
         }
 
 
         //generates a random word inside the list so it hides randomly
         Random rnd = new Random();
         string rndWord = _words[rnd.Next(0,_words.Count())];
-        Console.Write(rndWord);
 
 
         //hides the targeted word 
-        for(int i=0;i<_words.Count;i++)
+        for(int i=0;i<_words.ToList().Count;i++)
         {
-            if(_words[i].Contains("Nephi"))
-                _words[i] = "---";
-        }  
+            if(_words[i].Contains(rndWord))
+                _words[i] = "---";    
+        }    
 
-        
-
+        foreach(string item in _words)
+        {
+        //Console.Write($"{item} "); TESTING
+        }
+        return _words;
         
    }
 }
