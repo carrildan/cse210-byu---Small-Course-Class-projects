@@ -29,9 +29,13 @@ class Word
 
         }
     
-        foreach(string item in _hiddenWords)
+    }
+    public void Display()
+    {
+        foreach(string word in _hiddenWords)
         {
-            Console.Write(item);//TEST
+        Console.Write($"{word}");
         }
     }
+        
 }

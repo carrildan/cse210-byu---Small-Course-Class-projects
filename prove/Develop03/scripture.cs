@@ -25,6 +25,12 @@ class Scripture
    }
 
 
+   public string getScripture()
+   {
+     return _scripture;
+   }
+
+
    //method to hide the word
    public string[] HideWords()
    {
@@ -50,13 +56,10 @@ class Scripture
                 _words[i] = "---";    
         }    
 
-        foreach(string item in _words)
-        {
-        //Console.Write($"{item} "); TESTING
-        }
         return _words;
-        
    }
+
+
 }
 
 
