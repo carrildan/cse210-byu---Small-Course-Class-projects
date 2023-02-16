@@ -4,6 +4,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
+        Assignment assignment = new Assignment("Daniel Carril","Multiplication");
+        Console.WriteLine(assignment.GetSummary());
+
+        MathAssignment math = new MathAssignment("Elisangela Carril", "Fractions", "7.3", "8-19");
+        Console.WriteLine( math.GetSummary());
+        Console.WriteLine(math.GetHomeworkList());
+
+        WritingAssignment writing = new WritingAssignment("Anthony Carril","Europen Historian","The Causes of World War II by Mary Waters");
+        Console.WriteLine(writing.GetSummary());
+        Console.WriteLine(writing.GetWritingInformation());
+        
+        
     }
 }

@@ -1,63 +1,65 @@
 using System;
+using System.Collections.Generic;
 
-class Scriptures
+class Scripture
 {
-    string _scripture;
-    string _multiScripture;
-    string _reference;
-    string _multipleReference;
+   //attribute that stores a scripture
+   string _scripture;
+
+   //attribute that stores and tracks the words of the scripture
+   //List<string> _words = new List<string>();
+   string[] _words;
 
 
-    //constructor for single verse scripture
-    public Scriptures()
-    {
-        _scripture = "7. And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.";
-
-        _multiScripture = "";
-
-        _reference = "1 Nephy 3:7";
-
-        _multipleReference = "";
-    }
+   //constructor for a single verse scripture
+   public Scripture(string scripture)
+   {
+        _scripture = scripture;
+   }
 
 
-    //constructor for multiple reference
-    public Scriptures(string multiReference)
-    {
-         _scripture = "7. And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.";
-
-        _multiScripture = "8 And it came to pass that when my father had heard these words he was exceedingly glad, for he knew that I had been blessed of the Lord.";
-
-        _reference = "1 Nephy 3:7";
-    }
+    //constructor for multiple verses scripture
+   public Scripture(string verse, string multipleVerses )
+   {
+    _scripture = verse + multipleVerses;
+   }
 
 
-    //getter and setter for single reference
-    public void GetScriptures()
-    {
-
-    }
-
-
-    public void SetScriptures()
-    {
-
-    }
+   public string getScripture()
+   {
+     return _scripture;
+   }
 
 
-    //getter and setter for multiple verse scripture
-    public void GetMultipleVerses()
-    {
+   //method to hide the word
+   public string[] HideWords()
+   {
+        //split the letters into words
+        _words = _scripture.Split(" ");
 
-    }
+        //adding each word of the scripture into to the list so it can hide it. I WASN´T ABLE TO HANDLE HIDDING PROCESS WITHOUT ADDING IT TO A LIST.
+        foreach(string item in _words)
+        {
+         //_words.Add(item);
+        }
 
 
-    public void SetMultipleVerses()
-    {
-        
-    }
-    
+        //generates a random word inside the list so it hides randomly
+        Random rnd = new Random();
+        string rndWord = _words[rnd.Next(0,_words.Count())];
 
+
+        //hides the targeted word 
+        for(int i=0;i<_words.ToList().Count;i++)
+        {
+            if(_words[i].Contains(rndWord))
+                _words[i] = "---";    
+        }    
+
+        return _words;
+   }
 
 
 }
+
+

@@ -3,80 +3,39 @@ using System.Collections.Generic;
 
 //this class is responsible for hidden words and display the scripture
 class Word
-{
-    private Scriptures _scripture;
-    //private string _hiddenWords;
-    private List<string> _hiddenWords;
+{ 
+    //receives a word from Scripture
+    string[] _word;
+
+    //stores and tracks the words that are hidden.
+    List<string> _hiddenWords = new List<string>();
 
 
-    //constructor
-    public Word()
+    //sets the attributes 
+    public Word(string[] words)
     {
-        _scripture = new Scriptures();
-        _hiddenWords = new List<string>();
-        
+        //receives the hidden words from Scripture class
+        _word = words;
     }
 
 
-    //method to hidden the words 
-    public void ToHidden()
+    //returns true or false for a hidden word
+    public void IsHidden()
     {
-        //call random method
-        Random rnd = new Random();
-
-        string words = _scripture.GetScriptures();
-
-        string[] splitWords = words.Split();
-        string unsplitWords = string.Join(" ",splitWords);
-
-        _hiddenWords.Add(unsplitWords);
-
-        foreach(var item in _hiddenWords)
+        //adds the hidden words to the list
+        foreach(string item in _word)
         {
-            Console.WriteLine(item+"\n");
+            _hiddenWords.Add(item);
+
         }
-        
-        
-        
-       
-
-
-
-
-
-
-        //string[] splitWords = words.Split(" ");
-        
-
-        //int index = rnd.Next(splitWords.Length);
-        //string getWords  = splitWords[index].Replace("the", "---");
-       
-
-        //int index = rnd.Next(splitWords.Length);
-        //string getWords  = splitWords[index];
-        //Console.WriteLine(splitWords);
-        //string replacer = splitWords[index].Replace(getWords,"---");
-        //_hiddenWords = replacer;
-
+    
     }
-
-
-    //method to display a single verse scripture
     public void Display()
     {
-        
-        Console.Write(_hiddenWords);
+        foreach(string word in _hiddenWords)
+        {
+        Console.Write($"{word}");
+        }
     }
-
-
-    //method to display a multiple verse scripture
-    public void DisplayMultipleVerse()
-    {
         
-    }
-
-
-
-
-
 }
