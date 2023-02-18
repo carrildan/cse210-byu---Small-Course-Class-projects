@@ -12,22 +12,19 @@ class Program
         Console.WriteLine(newScripture.getScripture());
         Console.WriteLine("");
 
+        Word newWord = new Word(newScripture.HideWords());
 
         string user = "";
         while (user != "quit")
        { 
-
         
-
-        Word newWord = new Word(newScripture.HideWords());
-        newWord.IsHidden();
-        newWord.Display();
-
         //prompts the question
         Console.WriteLine("\nPlease enter to continue or type ´quit` to finish:");
         user = Console.ReadLine();
 
         Console.Clear();
+        newWord.IsHidden();
+        newWord.Display();
         
        }
         
