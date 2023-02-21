@@ -6,7 +6,6 @@ class Word
 { 
     //receives a word from Scripture
     List<string> _word = new List<string>();
-
     //stores and tracks the words that are hidden.
     List<string> _hiddenWords = new List<string>();
 
@@ -19,14 +18,13 @@ class Word
     }
 
 
-    //returns true or false for a hidden word
-    public void Hide()
+    //add the words that came from scripture class and store it to a list
+    public void ReceiveWords()
     {
         //adds the hidden words to the list
         foreach(string item in _word)
         {
             _hiddenWords.Add(item);
-
         }    
     }
 
