@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        //creates a reference for the scripture
+        Reference reference = new Reference("Proverbs", "1", "5", "6");
         //creates a new scripture
         Scripture newScripture = new Scripture("A wise man will hear, and will increase learning; and a man of understanding shall attain unto wise counsels:");
         newScripture.SplitWords();
