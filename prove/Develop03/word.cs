@@ -20,7 +20,7 @@ class Word
 
 
     //returns true or false for a hidden word
-    public void IsHidden()
+    public void Hide()
     {
         //adds the hidden words to the list
         foreach(string item in _word)
@@ -35,8 +35,8 @@ class Word
     {
         foreach(string word in _hiddenWords)
         {
-        Console.Write($"{word} ");
-        }
+            Console.Write(word);
+        }        
     }
         
 }
