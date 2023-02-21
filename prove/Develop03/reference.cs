@@ -12,7 +12,15 @@ class Reference
     string _lastVerse;
 
 
-    public Reference(string book, string chapter, string firstVerse, string lastVerses)
+    public Reference()
+    {
+        _book = "unknown";
+        _chapter = "unknown";
+        _firtVerse = "unknown";
+        _lastVerse = "unknown";
+    }
+
+    public void SetReference(string book, string chapter, string firstVerse, string lastVerses)
     {
         _book = book;
         _chapter = chapter;
@@ -20,17 +28,12 @@ class Reference
         _lastVerse = lastVerses;
     }
 
-
+    
     public string GetReference()
     {
         return $"{_book} {_chapter}: {_firtVerse} - {_lastVerse}";
     }
 
-
-    public void SetReference()
-    {
-        
-    }
 
 }
 
