@@ -20,6 +20,7 @@ class Reference
         _lastVerse = "unknown";
     }
 
+
     public void SetReference(string book, string chapter, string firstVerse, string lastVerses)
     {
         _book = book;
@@ -33,8 +34,6 @@ class Reference
     {
         return $"{_book} {_chapter}: {_firtVerse} - {_lastVerse}";
     }
-
-
 }
 
 

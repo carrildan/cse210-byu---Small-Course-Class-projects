@@ -14,29 +14,29 @@ class Program
         newScripture.getScripture();
         newScripture.SplitWords();
 
-        //render a scripture
+
+        //render a scripture to start
         Console.WriteLine($"{reference.GetReference()} {newScripture.getScripture()}");
         Console.WriteLine("");
-
 
 
         Console.WriteLine("Choose your option");
         string user = Console.ReadLine();
 
+
         while (user != "quit")
        { 
+        Console.Clear();
+        //creates a word to receive hidden and not hidden words.
         Word newWord = new Word(newScripture.HideWords());
-        newWord.Hide();
+        newWord.ReceiveWords();
+        //displays the reference and scripture with hidden words
         Console.Write($"{reference.GetReference()} ");
         newWord.Display();
 
+
         Console.WriteLine("Choose your option");
         user = Console.ReadLine();
-        Console.Clear();
-        
-        
        }
-        
-        //Console.WriteLine("BBB");
     }
 }
