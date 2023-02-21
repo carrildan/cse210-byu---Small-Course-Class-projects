@@ -5,14 +5,14 @@ using System.Collections.Generic;
 class Word
 { 
     //receives a word from Scripture
-    string[] _word;
+    List<string> _word = new List<string>();
 
     //stores and tracks the words that are hidden.
     List<string> _hiddenWords = new List<string>();
 
 
     //sets the attributes 
-    public Word(string[] words)
+    public Word(List<string> words)
     {
         //receives the hidden words from Scripture class
         _word = words;
@@ -27,14 +27,15 @@ class Word
         {
             _hiddenWords.Add(item);
 
-        }
-    
+        }    
     }
+
+    
     public void Display()
     {
         foreach(string word in _hiddenWords)
         {
-        Console.Write($"{word}");
+        Console.Write($"{word} ");
         }
     }
         

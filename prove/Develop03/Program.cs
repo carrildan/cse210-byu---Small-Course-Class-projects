@@ -5,26 +5,29 @@ class Program
     static void Main(string[] args)
     {
         //creates a new scripture
-        Scripture newScripture = new Scripture("7 And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.");
-        
+        Scripture newScripture = new Scripture("A wise man will hear, and will increase learning; and a man of understanding shall attain unto wise counsels:");
+        newScripture.SplitWords();
 
         //render a scripture
         Console.WriteLine(newScripture.getScripture());
         Console.WriteLine("");
 
-        Word newWord = new Word(newScripture.HideWords());
 
-        string user = "";
+
+        Console.WriteLine("Choose your option");
+        string user = Console.ReadLine();
+
         while (user != "quit")
        { 
-        
-        //prompts the question
-        Console.WriteLine("\nPlease enter to continue or type ´quit` to finish:");
-        user = Console.ReadLine();
-
-        Console.Clear();
+        var a = newScripture.HideWords();
+        Word newWord = new Word(a);
         newWord.IsHidden();
         newWord.Display();
+
+        Console.WriteLine("Choose your option");
+        user = Console.ReadLine();
+        Console.Clear();
+        
         
        }
         
