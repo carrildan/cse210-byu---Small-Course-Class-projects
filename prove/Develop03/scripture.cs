@@ -4,9 +4,9 @@ using System.Collections.Generic;
 class Scripture
 {
    //attribute that stores a scripture
-   string _scripture;
+   private string _scripture;
    //attribute that stores and tracks the words of the scripture
-   string[] _words;
+   private string[] _words;
 
 
    //constructor for a single verse scripture

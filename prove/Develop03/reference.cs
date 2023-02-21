@@ -3,13 +3,13 @@ using System;
 class Reference
 {
     //stores a book
-    string _book;
+    private string _book;
     //stores a chapter
-    string _chapter;
+    private string _chapter;
     //stores the first verse
-    string _firtVerse;
+    private string _firtVerse;
     //stores the rest of the verses 
-    string _lastVerse;
+    private string _lastVerse;
 
 
     public Reference()

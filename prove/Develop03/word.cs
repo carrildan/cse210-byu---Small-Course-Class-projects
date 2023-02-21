@@ -5,9 +5,9 @@ using System.Collections.Generic;
 class Word
 { 
     //receives a word from Scripture
-    List<string> _word = new List<string>();
+    private List<string> _word = new List<string>();
     //stores and tracks the words that are hidden.
-    List<string> _hiddenWords = new List<string>();
+    private List<string> _hiddenWords = new List<string>();
 
 
     //sets the attributes 
