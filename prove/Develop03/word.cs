@@ -7,34 +7,67 @@ class Word
     //receives a word from Scripture
     private List<string> _word = new List<string>();
     //stores and tracks the words that are hidden.
-    private List<string> _hiddenWords = new List<string>();
+    private string _hiddenWords = " ";
 
 
     //sets the attributes 
     public Word(List<string> words)
     {
         //receives the hidden words from Scripture class
-        _word = words;
+        foreach(string item in words)
+        {
+            _word.Add(item);
+            _word.ToString();            
+        }
     }
 
 
-    //add the words that came from scripture class and store it to a list
-    public void ReceiveWords()
+    //generates random words and return it
+     public string RandomWord()
+     {
+          //generates random words in the scripture
+          Random rnd = new Random();
+          int wordIndex = rnd.Next(0,_word.Count); 
+          string rndWord = _word[wordIndex];
+          
+
+          while(rndWord == _hiddenWords || rndWord == "---")
+          {
+            wordIndex = rnd.Next(0,_word.Count);
+            rndWord = _word[wordIndex];
+          }
+          return rndWord;
+     }  
+
+
+    //hides the words received from RandomWord()
+    public void HideWords()
     {
-        //adds the hidden words to the list
-        foreach(string item in _word)
+        string randomWord = RandomWord();
+        for(int i=0;i<_word.ToList().Count;i++)
         {
-            _hiddenWords.Add(item);
-        }    
+            if (_word[i] == randomWord && _word[i] != "---")
+            {
+                _word[i] = "---";
+            }
+        }
     }
 
     
     public void Display()
     {
-        foreach(string word in _hiddenWords)
+        foreach(string word in _word)
         {
-            Console.Write(word);
+            Console.Write($"{word} ");
         }        
-    }
-        
+    }    
+
+
+    public bool EndGame()
+    {
+        bool statment = _word.All(val => val == "---");
+        if(statment == true)
+            return true;
+        return false;
+    }    
 }

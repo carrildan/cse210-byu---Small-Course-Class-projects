@@ -11,31 +11,41 @@ class Program
 
         //creates a new scripture
         Scripture newScripture = new Scripture("A wise man will hear, and will increase learning; and a man of understanding shall attain unto wise counsels:");
-        newScripture.getScripture();
-        newScripture.SplitWords();
-
+        
 
         //render a scripture to start
         Console.WriteLine($"{reference.GetReference()} {newScripture.getScripture()}");
         Console.WriteLine("");
 
 
-        Console.WriteLine("Choose your option");
+        Console.WriteLine("Press enter to continue or type 'quit' to finish");
         string user = Console.ReadLine();
 
+        
+        //generates random words, hide a word and display scripture updated
+        Word newWord = new Word(newScripture.SplitWords());
 
+
+        //displays content while user do not type quit
         while (user != "quit")
        { 
+        //clear the console to update the content
         Console.Clear();
-        //creates a word to receive hidden and not hidden words.
-        Word newWord = new Word(newScripture.HideWords());
-        newWord.ReceiveWords();
-        //displays the reference and scripture with hidden words
-        Console.Write($"{reference.GetReference()} ");
+        newWord.RandomWord();
+        newWord.HideWords();
+
+        //displays the reference
+        Console.Write(reference.GetReference());
+        //displays scripture with hidden words
         newWord.Display();
 
 
-        Console.WriteLine("Choose your option");
+        if (newWord.EndGame() == true)
+            break;
+        
+
+
+        Console.WriteLine("\nPress enter to continue or type 'quit' to finish");
         user = Console.ReadLine();
        }
     }
