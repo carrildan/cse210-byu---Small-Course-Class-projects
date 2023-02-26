@@ -25,4 +25,12 @@ class Activity
     {
         Console.WriteLine($"Welcome to the {_activityName} activity.");
     }
+
+
+    //displays the end message
+    public void DisplayEndMessage()
+    {
+        Console.WriteLine("Well done!!");
+        Console.WriteLine($"You have completed another {_activityDuration} seconds of the {_activityName} activity");
+    }
 }
