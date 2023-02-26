@@ -20,9 +20,9 @@ class Activity
     }
 
 
+    //displays the start message
     public void DisplayStartMessage()
     {
         Console.WriteLine($"Welcome to the {_activityName} activity.");
     }
-
 }
