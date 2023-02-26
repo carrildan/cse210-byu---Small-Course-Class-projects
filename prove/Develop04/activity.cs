@@ -24,5 +24,4 @@ class Activity
     {
         Console.WriteLine($"Welcome to the {_activityName} activity.");
     }
-
 }
