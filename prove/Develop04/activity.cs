@@ -35,7 +35,7 @@ public class Activity
 
 
         Console.WriteLine("Get ready...");
-        PausingSpinner();
+        //PausingSpinner();
     }
 
 
@@ -45,7 +45,7 @@ public class Activity
         Console.WriteLine("Well done!!");
         PausingSpinner();
         Console.WriteLine($"\nYou have completed another {_activityDuration} seconds of the {_activityName} activity");
-        PausingSpinner();
+        //PausingSpinner();
     }
 
 
