@@ -1,22 +1,22 @@
 using System;
 
 
-class Activity
+public class Activity
 {
     //property for the name of each activity
-    private string _activityName;
+    private string _activityName = "undefined";
     //property for the description of each activity
-    private string _activityDescription;
+    private string _activityDescription = "undefined";
     //property for the duration of each activity
-    private int _activityDuration; 
+    private int _activityDuration = 5; 
 
 
     //constructor to first set attributes
-    public Activity()
+    public Activity(string name, string description, int duration)
     {
-        _activityName = "undefined";
-        _activityDescription = "undefined";
-        _activityDuration = 0;
+        _activityName = name;
+        _activityDescription = description;
+        _activityDuration = duration;
     }
 
 
