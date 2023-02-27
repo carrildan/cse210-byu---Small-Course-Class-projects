@@ -28,9 +28,14 @@ class Activity
         Console.WriteLine($"{_activityDescription}\n");
 
 
-        //prompts the user for the time duration of the activity
+        //prompts the user for the time duration of the activity and clear console
         Console.Write("How long, in seconds, would you like for your session? ");
         _activityDuration = int.Parse(Console.ReadLine());
+        Console.Clear();
+
+
+        Console.WriteLine("Get ready...");
+        PausingSpinner();
     }
 
 
@@ -38,7 +43,9 @@ class Activity
     public void DisplayEndMessage()
     {
         Console.WriteLine("Well done!!");
-        Console.WriteLine($"You have completed another {_activityDuration} seconds of the {_activityName} activity");
+        PausingSpinner();
+        Console.WriteLine($"\nYou have completed another {_activityDuration} seconds of the {_activityName} activity");
+        PausingSpinner();
     }
 
 
@@ -57,10 +64,6 @@ class Activity
         animationStrings.Add("\\");
 
 
-        //message that appears above the spinner for all activities
-        Console.WriteLine("Get ready...");
-
-
         //display spinner animation
         foreach(string symbol in animationStrings)
         {
@@ -71,11 +74,17 @@ class Activity
     }
 
 
+    //creates a countdown for the activities
     public void PausingCountdown()
     {
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(5);
         
+        for (int i = 5; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
     }
-
-
-
 }
