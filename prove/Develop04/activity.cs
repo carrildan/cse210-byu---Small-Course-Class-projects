@@ -35,7 +35,7 @@ public class Activity
 
 
         Console.WriteLine("Get ready...");
-        //PausingSpinner();
+        PausingSpinner();
     }
 
 
