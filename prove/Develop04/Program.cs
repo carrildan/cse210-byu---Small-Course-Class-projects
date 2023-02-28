@@ -5,9 +5,14 @@ class Program
     static void Main(string[] args)
     {
         //creats Breathing Activity
-        BreathingActivity breathingActivity = new BreathingActivity("Breath in...", "Now breath out...", "Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing", 5);
+        /*BreathingActivity breathingActivity = new BreathingActivity("Breath in...", "Now breath out...", "Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing", 5);
         breathingActivity.DisplayStartMessage();
         breathingActivity.RunBreathingActivity();
-        breathingActivity.DisplayEndMessage();
+        breathingActivity.DisplayEndMessage();*/
+
+
+        //creates Reflecting Activity
+        ReflectingActivity reflectingActivity = new ReflectingActivity("Reflecting", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", 5);
+        reflectingActivity.DisplayStartMessage();
     }
 }
