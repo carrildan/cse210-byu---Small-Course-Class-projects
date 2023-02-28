@@ -15,8 +15,28 @@ public class BreathingActivity : Activity
     }
 
 
+    //for breath in message
     public string GetBreathInMessage()
     {
         return ($"{_breathIn}");
+    }
+
+
+    //for breath out message
+    public string GetBreathOutMessage()
+    {
+        return ($"{_breathOut}");
+    }
+
+
+    public void DisplayBreathMessage()
+    {
+        Console.Write($"{GetBreathInMessage()}");
+        PausingCountdown();
+
+        Console.Write($"\n{GetBreathOutMessage()}");
+        PausingCountdown();
+
+
     }
 }
