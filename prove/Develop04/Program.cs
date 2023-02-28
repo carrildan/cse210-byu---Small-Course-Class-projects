@@ -14,5 +14,7 @@ class Program
         //creates Reflecting Activity
         ReflectingActivity reflectingActivity = new ReflectingActivity("Reflecting", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", 5);
         reflectingActivity.DisplayStartMessage();
+        reflectingActivity.SetRandomPrompt();
+        Console.Write(reflectingActivity.GetRandomPrompt());
     }
 }
