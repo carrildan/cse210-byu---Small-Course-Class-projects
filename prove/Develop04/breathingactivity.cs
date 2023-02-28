@@ -31,6 +31,7 @@ public class BreathingActivity : Activity
     }
 
 
+    //displays the methods above
     public void DisplayBreathMessage()
     {
         Console.Write($"{GetBreathInMessage()}");
@@ -40,14 +41,14 @@ public class BreathingActivity : Activity
         Console.Write($"{GetBreathOutMessage()}");
         PausingCountdown();
         Console.WriteLine("\n");
-
     }
 
 
+    //run the activity and it´s called by program class
     public void RunBreathingActivity()
     {
         DateTime StartTime = DateTime.Now;
-        DateTime Endtime = StartTime.AddSeconds(20);
+        DateTime Endtime = StartTime.AddSeconds(_activityDuration);
         while (DateTime.Now < Endtime)
             DisplayBreathMessage();
     }
