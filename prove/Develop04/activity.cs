@@ -7,7 +7,7 @@ public class Activity
     private string _activityName = "undefined";
     //property for the description of each activity
     private string _activityDescription = "undefined";
-    //property for the duration of each activity
+    //property for the duration of each activity. It can be accessed by all Run...Activity methods
     protected int _activityDuration; 
 
 
@@ -20,7 +20,7 @@ public class Activity
     }
 
 
-    //displays the start message
+    //displays the common start message
     public void DisplayStartMessage()
     {
         //welcome message and description of the activity
@@ -37,17 +37,16 @@ public class Activity
         Console.WriteLine("Get ready...");
         PausingSpinner();
         Console.WriteLine("\n");
-
     }
 
 
-    //displays the end message
+    //displays the common end message
     public void DisplayEndMessage()
     {
         Console.WriteLine("Well done!!");
         PausingSpinner();
         Console.WriteLine($"\nYou have completed another {_activityDuration} seconds of the {_activityName} activity");
-        //PausingSpinner();
+        PausingSpinner();
     }
 
 
@@ -70,7 +69,7 @@ public class Activity
         foreach(string symbol in animationStrings)
         {
             Console.Write(symbol);
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Write("\b \b");
         }
     }
