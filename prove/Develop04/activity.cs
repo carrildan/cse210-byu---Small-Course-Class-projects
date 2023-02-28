@@ -8,7 +8,7 @@ public class Activity
     //property for the description of each activity
     private string _activityDescription = "undefined";
     //property for the duration of each activity
-    private int _activityDuration = 5; 
+    protected int _activityDuration; 
 
 
     //constructor to first set attributes
@@ -36,6 +36,8 @@ public class Activity
 
         Console.WriteLine("Get ready...");
         PausingSpinner();
+        Console.WriteLine("\n");
+
     }
 
 
