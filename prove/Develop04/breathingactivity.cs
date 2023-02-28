@@ -6,14 +6,12 @@ public class BreathingActivity : Activity
     //attributes to hold breathing text
     private string _breathIn;
     private string _breathOut;
-    private int _actDuration;
 
 
     public BreathingActivity(string breathIn, string breathOut, string name, string description, int duration) : base(name, description, duration)
     {
         _breathIn = breathIn;
         _breathOut = breathOut;
-        _actDuration = duration;
     }
 
 
