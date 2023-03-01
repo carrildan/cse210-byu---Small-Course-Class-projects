@@ -63,8 +63,9 @@ public class ReflectingActivity : Activity
     //displays a text and a question
     public void DisplaQuestionOfPrompt()
     {
-        Console.WriteLine($"> {GetRandomQonPrompt()} ");
-        PausingCountdown();
+        Console.Write($"> {GetRandomQonPrompt()} ");
+        PausingSpinner();
+        Console.Write("\n");
     }
 
 
@@ -73,15 +74,18 @@ public class ReflectingActivity : Activity
         DisplayPrompt();
         Console.WriteLine("When you have something in mind, press enter to continue.");
         string user = Console.ReadLine();
+        
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
+        Console.Write($"You may begin in: ");
+        PausingCountdown();
 
-        if (user != "quit")
-        {
-            Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
-            Console.Write($"You may begin in: ");
-            PausingCountdown();
+        Console.Clear();
 
-            Console.Clear();
+        DateTime StartTime = DateTime.Now;
+        DateTime Endtime = StartTime.AddSeconds(_activityDuration);
+
+        while (DateTime.Now < Endtime)
             DisplaQuestionOfPrompt();
-        }
+        Console.Write("\n");
     }
 }
