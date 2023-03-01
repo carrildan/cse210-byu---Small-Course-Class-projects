@@ -18,5 +18,6 @@ class Program
         //Console.Write(reflectingActivity.GetRandomPrompt());
         reflectingActivity.SetRandomQonPrompt();
         reflectingActivity.RunReflectingActivity();
+        reflectingActivity.DisplayEndMessage();
     }
 }
