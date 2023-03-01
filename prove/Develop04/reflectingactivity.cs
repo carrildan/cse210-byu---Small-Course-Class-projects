@@ -20,7 +20,7 @@ public class ReflectingActivity : Activity
     //returns a prompt
     public string GetRandomPrompt()
     {
-        return ($"Consider the following prompt:\n\n--- {_prompt} ---");
+        return ($"{_prompt}");
     }
 
 
@@ -50,5 +50,38 @@ public class ReflectingActivity : Activity
         string rndQuestion = _listOfReflectingQofPrompts[rndIndex];
 
         _question = rndQuestion;
+    }
+
+
+    //displays a text and a prompt
+    public void DisplayPrompt()
+    {
+        Console.WriteLine($"Consider the following prompt:\n\n --- {GetRandomPrompt()} --- \n");
+    }
+
+
+    //displays a text and a question
+    public void DisplaQuestionOfPrompt()
+    {
+        Console.WriteLine($"> {GetRandomQonPrompt()} ");
+        PausingCountdown();
+    }
+
+
+    public void RunReflectingActivity()
+    {
+        DisplayPrompt();
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        string user = Console.ReadLine();
+
+        if (user != "quit")
+        {
+            Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
+            Console.Write($"You may begin in: ");
+            PausingCountdown();
+
+            Console.Clear();
+            DisplaQuestionOfPrompt();
+        }
     }
 }
