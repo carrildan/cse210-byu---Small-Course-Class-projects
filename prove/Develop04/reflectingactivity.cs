@@ -10,7 +10,6 @@ public class ReflectingActivity : Activity
     private string _question;
 
 
-
     public ReflectingActivity(string name, string description, int duration) : base(name, description, duration)
     {
     
@@ -63,17 +62,19 @@ public class ReflectingActivity : Activity
     //displays a text and a question
     public void DisplaQuestionOfPrompt()
     {
+        SetRandomQonPrompt();
         Console.Write($"> {GetRandomQonPrompt()} ");
         PausingSpinner();
         Console.Write("\n");
     }
 
 
+    //runs all the Reflecting Activity when is called by the program class
     public void RunReflectingActivity()
     {
         DisplayPrompt();
         Console.WriteLine("When you have something in mind, press enter to continue.");
-        string user = Console.ReadLine();
+        string user = Console.ReadLine(); //user must click any key to keep running
         
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
         Console.Write($"You may begin in: ");
