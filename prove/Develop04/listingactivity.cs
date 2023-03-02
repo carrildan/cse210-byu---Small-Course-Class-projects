@@ -9,6 +9,8 @@ public class ListingActivity : Activity
     private List<string> _listOfListingAnswerPrompts;    
     //holds a single prompt
     private string _prompt;
+    //holds a single answer to the prompt
+    private string _answer;
 
 
     public ListingActivity(string name, string description, int duration) : base(name, description, duration)
@@ -32,5 +34,48 @@ public class ListingActivity : Activity
         string rndWord = _listOfListingPrompts[rndIndex];
 
         _prompt = rndWord;
+    }
+
+
+    public string GetListingAnswersOfPrompt()
+    {
+        return ($"{_answer}");
+    }
+
+
+    public void SetListingAnswersOfPrompt()
+    {
+        _answer = Console.ReadLine();
+    }
+
+
+    public void DisplayListingPrompt()
+    {
+        Console.WriteLine($"--- {_prompt} ---");
+    }
+
+
+    public void DisplayListingOfAofPrompt()
+    {
+        Console.WriteLine($"> {_answer}");
+    }
+
+
+    public void RunListingActivity()
+    {
+        Console.WriteLine("List as many responses you can to the following prompt: ");
+        DisplayListingPrompt();
+        
+        Console.Write("You may begin in: ");
+        PausingCountdown();
+
+        DateTime StartTime = DateTime.Now;
+        DateTime Endtime = StartTime.AddSeconds(_activityDuration);
+
+        while(DateTime.Now < Endtime)
+        {
+            Console.Write("\n> ");
+            SetListingAnswersOfPrompt();
+        }
     }
 }
