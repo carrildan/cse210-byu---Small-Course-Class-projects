@@ -35,7 +35,8 @@ public class Activity
 
 
         Console.WriteLine("Get ready...");
-        PausingSpinner();
+        //PausingSpinner();
+        PausingLoading();
         Console.WriteLine("\n");
     }
 
@@ -46,7 +47,8 @@ public class Activity
         Console.WriteLine("Well done!!");
         PausingSpinner();
         Console.WriteLine($"\nYou have completed another {_activityDuration} seconds of the {_activityName} activity");
-        PausingSpinner();
+        //PausingSpinner();
+        PausingLoading();
     }
 
 
@@ -87,5 +89,24 @@ public class Activity
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
+    }
+
+    // EXCEED CORE REQUIREMENTS: A LOADING ANIMATION.
+    //creates a loading while program is in pause. It´s called by DisplayStartMessage() and DisplayEndMessage()
+    public void PausingLoading()
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(3);
+
+        List<string> loading = new List<string>(){"L","O","A","D","I","N","G"," "};
+        for (int i = 3; i > 0; i--)
+            foreach(var item in loading)
+            {
+                Console.Write(item);
+                Thread.Sleep(100);
+                if (item == "G")
+                    //erase the text when hits G then start over
+                    Console.Write("\r" + new string(' ',Console.WindowWidth) + "\r");
+            }
     }
 }
