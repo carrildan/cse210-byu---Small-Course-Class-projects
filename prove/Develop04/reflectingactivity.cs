@@ -72,6 +72,8 @@ public class ReflectingActivity : Activity
     //runs all the Reflecting Activity when is called by the program class
     public void RunReflectingActivity()
     {
+        SetRandomPrompt();
+        SetRandomQonPrompt();
         DisplayPrompt();
         Console.WriteLine("When you have something in mind, press enter to continue.");
         string user = Console.ReadLine(); //user must click any key to keep running
