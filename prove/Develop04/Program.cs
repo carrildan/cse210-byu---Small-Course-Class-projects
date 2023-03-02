@@ -1,5 +1,5 @@
 using System;
-
+// EXCEED CORE REQUIREMENTS: I CREATED A LOADING ANIMATION IN ACTIVITY CLASS. IT LOCATED AS LAST METHOD AND IT´S CALLED BY DisplayStartMessage() and DisplayEndMessage()
 class Program
 {
     static void Main(string[] args)
