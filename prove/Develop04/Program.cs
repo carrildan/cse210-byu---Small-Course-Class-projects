@@ -24,6 +24,6 @@ class Program
         ListingActivity listingActivity = new ListingActivity("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.", 5);
         listingActivity.DisplayStartMessage();
         listingActivity.SetListingPrompt();
-        Console.Write(listingActivity.GetListingPrompt());
+        listingActivity.RunListingActivity();
     }
 }
