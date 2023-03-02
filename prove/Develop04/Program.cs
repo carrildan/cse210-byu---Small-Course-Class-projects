@@ -12,12 +12,18 @@ class Program
 
 
         //creates Reflecting Activity
-        ReflectingActivity reflectingActivity = new ReflectingActivity("Reflecting", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", 5);
+        /*ReflectingActivity reflectingActivity = new ReflectingActivity("Reflecting", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", 5);
         reflectingActivity.DisplayStartMessage();
         reflectingActivity.SetRandomPrompt();
         //Console.Write(reflectingActivity.GetRandomPrompt());
         reflectingActivity.SetRandomQonPrompt();
         reflectingActivity.RunReflectingActivity();
-        reflectingActivity.DisplayEndMessage();
+        reflectingActivity.DisplayEndMessage();*/
+
+
+        ListingActivity listingActivity = new ListingActivity("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.", 5);
+        listingActivity.DisplayStartMessage();
+        listingActivity.SetListingPrompt();
+        listingActivity.RunListingActivity();
     }
 }
