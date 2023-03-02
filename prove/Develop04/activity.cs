@@ -91,8 +91,8 @@ public class Activity
         }
     }
 
-
-    //creates a loading while program is in pause. For some parts of the program.
+    // EXCEED CORE REQUIREMENTS: A LOADING ANIMATION.
+    //creates a loading while program is in pause. It´s called by DisplayStartMessage() and DisplayEndMessage()
     public void PausingLoading()
     {
         DateTime startTime = DateTime.Now;
