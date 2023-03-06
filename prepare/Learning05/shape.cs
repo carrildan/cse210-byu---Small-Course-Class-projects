@@ -1,6 +1,6 @@
 using System;
 
-class Shape
+public abstract class Shape
 {
     private string _color;
 
@@ -23,8 +23,6 @@ class Shape
     }
 
 
-    public virtual float GetArea()
-    {
-        return 0;
-    }
+    public abstract double GetArea();
+    
 }

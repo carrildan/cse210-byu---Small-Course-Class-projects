@@ -11,7 +11,7 @@ class Square : Shape
     }
 
 
-    public override float GetArea()
+    public override double GetArea()
     {
         return _side * _side;
     }
