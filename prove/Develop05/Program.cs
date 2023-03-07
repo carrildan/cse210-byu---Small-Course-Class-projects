@@ -10,7 +10,7 @@ class Program
         string menuChoice = Console.ReadLine();
 
         //if user chooses to create a new goal
-        if (menuChoice == "1")
+        /*if (menuChoice == "1")
         {
             //submenu for 3 different types of goals
             Console.WriteLine("The types of Goals are:\n 1. Simple Goal\n 2. Eternal Goal\n 3. Checklist Goal");
@@ -18,12 +18,16 @@ class Program
             Console.Write("Which type of goal would you like to create? ");
             string submenuChoice = Console.ReadLine();
 
-
+            //if user chooses to create a new simple goal
             if (submenuChoice == "1")
             {
-                //
+                SimpleGoal simpleGoal = new SimpleGoal("unknown", "unknown", 0);
+                simpleGoal.CreateGoal();
             }
-        }
+        }*/
+        SimpleGoal simpleGoal = new SimpleGoal("unknown", "unknown", 0);
+        simpleGoal.CreateGoal();
+        Console.Write(simpleGoal.GetListOfGoal());
 
     }
 }
