@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class Goal
 {
@@ -29,13 +30,16 @@ public class Goal
     {
         Console.Write("What is the name of your goal? ");
         _goalName = Console.ReadLine();
+        _listOfGoals.Add(_goalName);
 
         Console.Write("\nWhat is a short description of it? ");
         _goalDescription = Console.ReadLine();
+        _listOfGoals.Add(_goalDescription);
 
         Console.Write("\nWhat is the amount of points associated with this goal? ");
         string user = Console.ReadLine();
         _goalAssociatedPoints = int.Parse(user);
+        //_listOfGoals.Add(_goalAssociatedPoints);
     }
 
 
@@ -50,6 +54,6 @@ public class Goal
             x = " ";
         }
 
-        return ($"[{x}] {_goalName} ({_goalDescription})");
+        return ($"The goals are:\n [{x}] {_goalName} ({_goalDescription})");
     }
 }
