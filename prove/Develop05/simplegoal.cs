@@ -2,7 +2,7 @@ using System;
 
 public class SimpleGoal : Goal
 {
-    public SimpleGoal(string goalName, string goalDescription, int goalAssociatedPoints) : base(goalName, goalDescription, goalAssociatedPoints)
+    public SimpleGoal(string goalName, string goalDescription, string goalAssociatedPoints) : base(goalName, goalDescription, goalAssociatedPoints)
     {
         
     }
