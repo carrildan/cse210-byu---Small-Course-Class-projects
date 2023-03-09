@@ -19,7 +19,7 @@ public abstract class Goal
     //private List<string> _listOfGoals;
 
     //check if goal is completed
-    private bool _isCompleted;
+    //private bool _isCompleted;
 
 
     public Goal(string goalName, string goalDescription, string goalAssociatedPoints)
@@ -28,7 +28,7 @@ public abstract class Goal
         _goalDescription = goalDescription;
         _goalAssociatedPoints = goalAssociatedPoints;
         //_listOfGoals = new List<string>();
-        _isCompleted = false;
+        //_isCompleted = false;
     }
 
 
