@@ -13,13 +13,13 @@ public abstract class Goal
     protected string _goalAssociatedPoints;
 
     //stores the total points earned
-    private int _totalPoints;
+    protected int _totalPoints;
 
     //holds a list of goals
     //private List<string> _listOfGoals;
 
     //check if goal is completed
-    //private bool _isCompleted;
+    protected bool _isCompleted;
 
 
     public Goal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints)
@@ -49,6 +49,12 @@ public abstract class Goal
 
     //set list in different ways in each class
     public abstract void SetListOfGoal();
+
+
+    public int GetTotalPoints()
+    {
+        return _totalPoints;
+    }
 
 
     //displays the itens in the list in different ways in each class
