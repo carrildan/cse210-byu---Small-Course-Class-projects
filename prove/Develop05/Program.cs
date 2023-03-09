@@ -3,21 +3,23 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    { 
-        //instatiate a simple goal for when user chooses to create or list goals
+    {
+        //instatiate a simple goal for when user chooses to create a list of goals
         List<Goal> goals = new List<Goal>();
         goals.Add(new SimpleGoal("unknown","unknown","0"));
-
+        
+        
         //displays menu as long the user does not quit the program
         string menuChoice = "";
+
         while (menuChoice != "6")
         {
             //displays main menu
             Console.WriteLine("Menu Options:\n 1. Create New Goal\n 2. List Goals\n 3. Save Goals\n 4. Load Goals\n 5. Record Event\n 6. Quit");
             Console.Write("Select a choice from the menu: ");
             menuChoice = Console.ReadLine();
-        
 
+             
             //if user chooses to create a new goal
             if (menuChoice == "1")
             {
@@ -36,13 +38,26 @@ class Program
                         goal.SetListOfGoal();
                     }
                 } 
-
-            } else if (menuChoice == "2")
+                //if user chooses to create an eternal goal
+                else
+                {
+                    goals.Add(new EternalGoal("unknown1","unknown1","1"));
+                    foreach(Goal eternalgoal in goals)
+                    {
+                        eternalgoal.CreateGoal();
+                        eternalgoal.SetListOfGoal();
+                    }   
+                }  
+            }
+            //if user chooses to list the goals
+            else
             {
                 foreach(Goal goal in goals)
+                {
                     goal.DisplayListOfGoal();
+                }
+                    
             }
         }
-
     }
 }
