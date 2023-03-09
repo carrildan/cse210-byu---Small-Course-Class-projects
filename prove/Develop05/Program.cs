@@ -4,14 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        //instatiate a simple goal for when user chooses to create a list of goals
+        //instatiate a simple goal to be used when user chooses to create a new goal
         List<Goal> goals = new List<Goal>();
-        goals.Add(new SimpleGoal("unknown","unknown","0"));
         
         
         //displays menu as long the user does not quit the program
         string menuChoice = "";
-
         while (menuChoice != "6")
         {
             //displays main menu
@@ -32,21 +30,19 @@ class Program
                 //if user chooses to create a new simple goal
                 if (submenuChoice == "1")
                 {
-                    foreach(Goal goal in goals)
-                    {
-                        goal.CreateGoal();
-                        goal.SetListOfGoal();
-                    }
+                    var newSimpleGoal = (new SimpleGoal("unknown","unknown","0"));                
+                    newSimpleGoal.CreateGoal();
+                    newSimpleGoal.SetListOfGoal();
+                    goals.Add(newSimpleGoal);
                 } 
                 //if user chooses to create an eternal goal
                 else
                 {
-                    goals.Add(new EternalGoal("unknown1","unknown1","1"));
-                    foreach(Goal eternalgoal in goals)
-                    {
-                        eternalgoal.CreateGoal();
-                        eternalgoal.SetListOfGoal();
-                    }   
+                    var newEternalGoal = (new EternalGoal("unknown1","unknown1","1"));
+                    newEternalGoal.CreateGoal();
+                    newEternalGoal.SetListOfGoal();
+                    goals.Add(newEternalGoal);
+                     
                 }  
             }
             //if user chooses to list the goals
