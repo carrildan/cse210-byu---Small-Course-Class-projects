@@ -24,7 +24,7 @@ public class CheckListGoal : Goal
     private bool _isCompleted;
 
 
-    public CheckListGoal(string goalName, string goalDescription, string goalAssociatedPoints) : base(goalName, goalDescription, goalAssociatedPoints)
+    public CheckListGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
         _checkListOfGoals = new List<string>();
         _x = " ";
@@ -74,6 +74,13 @@ public class CheckListGoal : Goal
         {
             Console.WriteLine(item);
         }
+    }
+
+
+    //return a string to save object
+    public override string GetDataToSave()
+    {
+        return ($"Checklist Goal: {_goalName},{_goalDescription},{_goalAssociatedPoints},{_totalPoints},{_checkListGoalCount},{_checkListGoalCount}");
     }
 
 }
