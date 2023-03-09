@@ -11,7 +11,7 @@ public class SimpleGoal : Goal
     {
         _simpleListOfGoals = new List<string>();
         _x = " ";
-        _isCompleted = false;
+        _isCompleted = true;
     }
 
     public override void SetListOfGoal()
