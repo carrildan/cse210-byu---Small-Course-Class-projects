@@ -22,11 +22,12 @@ public abstract class Goal
     //private bool _isCompleted;
 
 
-    public Goal(string goalName, string goalDescription, string goalAssociatedPoints)
+    public Goal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints)
     {
         _goalName = goalName;
         _goalDescription = goalDescription;
         _goalAssociatedPoints = goalAssociatedPoints;
+        _totalPoints = totalPoints;
         //_listOfGoals = new List<string>();
         //_isCompleted = false;
     }
@@ -52,4 +53,7 @@ public abstract class Goal
 
     //displays the itens in the list in different ways in each class
     public abstract void DisplayListOfGoal();
+
+
+    public abstract string GetDataToSave();
 }
