@@ -15,6 +15,7 @@ public class EternalGoal : Goal
     }
 
 
+    //overrides method to display from the current list
     public override void DisplayListOfGoal()
     {
         {
