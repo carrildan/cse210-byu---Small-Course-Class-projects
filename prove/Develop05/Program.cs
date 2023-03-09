@@ -3,11 +3,11 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    { 
-        //instatiate a simple goal for when user chooses to create or list goals
+    {
+        //instatiate a simple goal to be used when user chooses to create a new goal
         List<Goal> goals = new List<Goal>();
-        goals.Add(new SimpleGoal("unknown","unknown","0"));
-
+        
+        
         //displays menu as long the user does not quit the program
         string menuChoice = "";
         while (menuChoice != "6")
@@ -16,8 +16,8 @@ class Program
             Console.WriteLine("Menu Options:\n 1. Create New Goal\n 2. List Goals\n 3. Save Goals\n 4. Load Goals\n 5. Record Event\n 6. Quit");
             Console.Write("Select a choice from the menu: ");
             menuChoice = Console.ReadLine();
-        
 
+             
             //if user chooses to create a new goal
             if (menuChoice == "1")
             {
@@ -30,19 +30,29 @@ class Program
                 //if user chooses to create a new simple goal
                 if (submenuChoice == "1")
                 {
-                    foreach(Goal goal in goals)
-                    {
-                        goal.CreateGoal();
-                        goal.SetListOfGoal();
-                    }
+                    var newSimpleGoal = (new SimpleGoal("unknown","unknown","0"));                
+                    newSimpleGoal.CreateGoal();
+                    newSimpleGoal.SetListOfGoal();
+                    goals.Add(newSimpleGoal);
                 } 
-
-            } else if (menuChoice == "2")
+                //if user chooses to create an eternal goal
+                else
+                {
+                    var newEternalGoal = (new EternalGoal("unknown1","unknown1","1"));
+                    newEternalGoal.CreateGoal();
+                    newEternalGoal.SetListOfGoal();
+                    goals.Add(newEternalGoal);
+                     
+                }  
+            }
+            //if user chooses to list the goals
+            else
             {
                 foreach(Goal goal in goals)
+                {
                     goal.DisplayListOfGoal();
+                }       
             }
         }
-
     }
 }

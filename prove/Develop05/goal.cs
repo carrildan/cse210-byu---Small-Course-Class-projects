@@ -1,25 +1,25 @@
 using System;
 using System.Collections.Generic;
 
-public class Goal
+public abstract class Goal
 {
     //name of the goal
-    private string _goalName;
+    protected string _goalName;
 
     //describes the purpose of the goal
-    private string _goalDescription;
+    protected string _goalDescription;
 
     //set points according to each goal
-    private string _goalAssociatedPoints;
+    protected string _goalAssociatedPoints;
 
     //stores the total points earned
     private int _totalPoints;
 
     //holds a list of goals
-    private List<string> _listOfGoals;
+    //private List<string> _listOfGoals;
 
     //check if goal is completed
-    private bool _isCompleted;
+    //private bool _isCompleted;
 
 
     public Goal(string goalName, string goalDescription, string goalAssociatedPoints)
@@ -27,8 +27,8 @@ public class Goal
         _goalName = goalName;
         _goalDescription = goalDescription;
         _goalAssociatedPoints = goalAssociatedPoints;
-        _listOfGoals = new List<string>();
-        _isCompleted = true;
+        //_listOfGoals = new List<string>();
+        //_isCompleted = false;
     }
 
 
@@ -46,27 +46,10 @@ public class Goal
     }
 
 
-    //add to the list the text with name and description of the goal  -------  MAYBE CHANGE THE NAME OF THE METHOD
-    public void SetListOfGoal()
-    {
-        string x;
-        if (_isCompleted == true)
-        {
-            x = "X";
-        }else {
-            x = " ";
-        }
-        _listOfGoals.Add($"The goals are:\n [{x}] {_goalName} ({_goalDescription})");
-    }
+    //set list in different ways in each class
+    public abstract void SetListOfGoal();
 
 
-    //displays the itens in the list
-    public void DisplayListOfGoal()
-    {
-        
-        foreach(string item in _listOfGoals)
-        {
-            Console.WriteLine(item);
-        }
-    }
+    //displays the itens in the list in different ways in each class
+    public abstract void DisplayListOfGoal();
 }
