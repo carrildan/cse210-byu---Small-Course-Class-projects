@@ -3,7 +3,7 @@ using System;
 public class EternalGoal : Goal
 {
     private List<string> _eternalListOfGoal;
-    public EternalGoal(string goalName, string goalDescription, string goalAssociatedPoints) : base(goalName, goalDescription, goalAssociatedPoints)
+    public EternalGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
         _eternalListOfGoal = new List<string>();
     }
@@ -24,6 +24,12 @@ public class EternalGoal : Goal
                 Console.WriteLine(item);
             }
         }
+    }
+
+
+    public override string GetDataToSave()
+    {
+        throw new NotImplementedException();
     }
 
 
