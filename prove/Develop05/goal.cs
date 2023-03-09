@@ -28,6 +28,7 @@ public class Goal
         _goalDescription = goalDescription;
         _goalAssociatedPoints = goalAssociatedPoints;
         _listOfGoals = new List<string>();
+        _isCompleted = true;
     }
 
 
@@ -48,7 +49,14 @@ public class Goal
     //add to the list the text with name and description of the goal  -------  MAYBE CHANGE THE NAME OF THE METHOD
     public void SetListOfGoal()
     {
-        _listOfGoals.Add($"The goals are:\n [ ] {_goalName} ({_goalDescription})");
+        string x;
+        if (_isCompleted == true)
+        {
+            x = "X";
+        }else {
+            x = " ";
+        }
+        _listOfGoals.Add($"The goals are:\n [{x}] {_goalName} ({_goalDescription})");
     }
 
 
