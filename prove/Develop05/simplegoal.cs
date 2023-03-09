@@ -4,14 +4,14 @@ public class SimpleGoal : Goal
 {
     private List<string> _simpleListOfGoals;
     private string _x;
-    private bool _isCompleted;
+    //private bool _isCompleted; // MAYBE DELETE IT AND TURN PROTECTED IN BASE CLASS
 
 
-    public SimpleGoal(string goalName, string goalDescription, string goalAssociatedPoints) : base(goalName, goalDescription, goalAssociatedPoints)
+    public SimpleGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
         _simpleListOfGoals = new List<string>();
         _x = " ";
-        _isCompleted = true;
+        //_isCompleted = true;
     }
 
     public override void SetListOfGoal()
@@ -36,4 +36,10 @@ public class SimpleGoal : Goal
         }
     }
 
+
+    //return a string to save object
+    public override string GetDataToSave()
+    {
+       return ($"Simple Goal: {_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
+    }
 }

@@ -30,7 +30,7 @@ class Program
                 //if user chooses to create a new simple goal
                 if (submenuChoice == "1")
                 {
-                    var newSimpleGoal = new SimpleGoal("unknown","unknown","0");                
+                    var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 0);                
                     newSimpleGoal.CreateGoal();
                     newSimpleGoal.SetListOfGoal();
                     goals.Add(newSimpleGoal);
@@ -38,7 +38,7 @@ class Program
                 //if user chooses to create an eternal goal
                 else if (submenuChoice == "2")
                 {
-                    var newEternalGoal = new EternalGoal("unknown1","unknown1","1");
+                    var newEternalGoal = new EternalGoal("unknown1","unknown1","1", 0);
                     newEternalGoal.CreateGoal();
                     newEternalGoal.SetListOfGoal();
                     goals.Add(newEternalGoal);
@@ -46,19 +46,33 @@ class Program
                 }  
                 else
                 {
-                    var newCheckListGoal = new CheckListGoal("unknown2","unknown2","3");
+                    var newCheckListGoal = new CheckListGoal("unknown2","unknown2","3", 0);
                     newCheckListGoal.CreateGoal();
                     newCheckListGoal.SetListOfGoal();
                     goals.Add(newCheckListGoal);
                 }
             }
             //if user chooses to list the goals
-            else
+            else if (menuChoice == "2")
             {
+
                 foreach(Goal goal in goals)
                 {
                     goal.DisplayListOfGoal();
                 }       
+            }
+            else if (menuChoice == "3")
+            {
+                Console.Write("What is the filename for the goal file? ");
+                string fileName = Console.ReadLine();
+
+                using (StreamWriter outputfile = new StreamWriter(fileName))
+                {
+                    foreach(Goal goal in goals)
+                    {
+                        outputfile.WriteLine(goal.GetDataToSave());
+                    }
+                }
             }
         }
     }
