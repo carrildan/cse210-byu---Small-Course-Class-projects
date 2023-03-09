@@ -30,20 +30,27 @@ class Program
                 //if user chooses to create a new simple goal
                 if (submenuChoice == "1")
                 {
-                    var newSimpleGoal = (new SimpleGoal("unknown","unknown","0"));                
+                    var newSimpleGoal = new SimpleGoal("unknown","unknown","0");                
                     newSimpleGoal.CreateGoal();
                     newSimpleGoal.SetListOfGoal();
                     goals.Add(newSimpleGoal);
                 } 
                 //if user chooses to create an eternal goal
-                else
+                else if (submenuChoice == "2")
                 {
-                    var newEternalGoal = (new EternalGoal("unknown1","unknown1","1"));
+                    var newEternalGoal = new EternalGoal("unknown1","unknown1","1");
                     newEternalGoal.CreateGoal();
                     newEternalGoal.SetListOfGoal();
                     goals.Add(newEternalGoal);
                      
                 }  
+                else
+                {
+                    var newCheckListGoal = new CheckListGoal("unknown2","unknown2","3");
+                    newCheckListGoal.CreateGoal();
+                    newCheckListGoal.SetListOfGoal();
+                    goals.Add(newCheckListGoal);
+                }
             }
             //if user chooses to list the goals
             else
