@@ -55,8 +55,7 @@ class Program
                 foreach(Goal goal in goals)
                 {
                     goal.DisplayListOfGoal();
-                }
-                    
+                }       
             }
         }
     }
