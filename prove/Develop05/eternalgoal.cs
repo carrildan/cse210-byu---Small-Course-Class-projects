@@ -29,7 +29,7 @@ public class EternalGoal : Goal
 
     public override string GetDataToSave()
     {
-        throw new NotImplementedException();
+        return ($"Eternal Goal: {_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
     }
 
 
