@@ -27,7 +27,7 @@ public class SimpleGoal : Goal
         _simpleListOfGoals.Add($"The goals are:\n [{_x}] {_goalName} ({_goalDescription})");
     }
 
-
+    //overrides method to display from the current list
     public override void DisplayListOfGoal()
     {
         foreach(string item in _simpleListOfGoals)
