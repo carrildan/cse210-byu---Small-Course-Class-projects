@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        //its benn called here to be used to load a file in menu 4
+        var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);                
+
         //instatiate a simple goal to be used when user chooses to create a new goal
         List<Goal> goals = new List<Goal>();
 
@@ -34,7 +37,7 @@ class Program
                 //if user chooses to create a new simple goal
                 if (submenuChoice == "1")
                 {
-                    var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);                
+                    //var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);                
                     newSimpleGoal.CreateGoal();
                     newSimpleGoal.SetListOfGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
@@ -67,6 +70,11 @@ class Program
             //if user chooses to list the goals
             else if (menuChoice == "2")
             {
+                if(goals == null)
+                {
+                    // TO DO: IMPLEMENTAR
+                }
+
                 foreach(Goal goal in goals)
                 {
                     goal.DisplayListOfGoal();
@@ -88,6 +96,15 @@ class Program
                         outputfile.WriteLine(goal.GetDataToSave());
                     }
                 }
+            }
+
+            //if user chooses to load a file
+            else if (menuChoice == "4")
+            {
+                Console.Write("what is the name of your file? ");
+                var loadFile = Console.ReadLine();
+                
+                newSimpleGoal.LoadGoal(loadFile);
             }
         }
     }
