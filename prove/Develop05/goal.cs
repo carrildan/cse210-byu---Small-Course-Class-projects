@@ -69,13 +69,28 @@ public abstract class Goal
 
 
     //return text as should appear when saved as a file
-    public abstract string GetDataToSave();
+    public abstract string Save();
 
 
     //load a file
-    public void LoadGoal(string file)
+    public string Load(string file)
     {
         string[] lines = System.IO.File.ReadAllLines(file);
+        foreach(string line in lines)
+        {
+            string[] parts = line.Split(":");
+            string first = parts[0];
+            Console.WriteLine(first);
+        }
+        return "";
     }
+
+
+    /*public string GoalFromFile(string first)
+    {
+        string loading = Load();
+        //string[] splitDescription = first.Split(",");
+        //return (splitDescription[0] + splitDescription[1] + splitDescription[2] + splitDescription[3] + splitDescription[4] + splitDescription[5]);        
+    }*/
 
 }
