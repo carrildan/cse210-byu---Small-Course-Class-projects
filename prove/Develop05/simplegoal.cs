@@ -38,8 +38,8 @@ public class SimpleGoal : Goal
 
 
     //return a string to save object
-    public override string GetDataToSave()
+    public override string Save()
     {
-       return ($"Simple Goal: {_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
+       return ($"Simple Goal:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
     }
 }
