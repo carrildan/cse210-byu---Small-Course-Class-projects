@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 class Program
 {
@@ -70,10 +71,11 @@ class Program
             //if user chooses to list the goals
             else if (menuChoice == "2")
             {
-                if(goals == null)
+                
+                /*if(goals == null)
                 {
-                    // TO DO: IMPLEMENTAR
-                }
+                    Console.Write(newSimpleGoal.GoalFromFile());
+                }*/
 
                 foreach(Goal goal in goals)
                 {
@@ -93,7 +95,7 @@ class Program
                     outputfile.WriteLine(totalPoints);
                     foreach(Goal goal in goals)
                     {
-                        outputfile.WriteLine(goal.GetDataToSave());
+                        outputfile.WriteLine(goal.Save());
                     }
                 }
             }
@@ -104,7 +106,7 @@ class Program
                 Console.Write("what is the name of your file? ");
                 var loadFile = Console.ReadLine();
                 
-                newSimpleGoal.LoadGoal(loadFile);
+                newSimpleGoal.Load(loadFile);
             }
         }
     }
