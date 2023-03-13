@@ -27,9 +27,9 @@ public class EternalGoal : Goal
     }
 
 
-    public override string GetDataToSave()
+    public override string Save()
     {
-        return ($"Eternal Goal: {_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
+        return ($"Eternal Goal:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
     }
 
 
