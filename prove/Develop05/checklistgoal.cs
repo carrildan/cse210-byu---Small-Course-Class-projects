@@ -78,9 +78,9 @@ public class CheckListGoal : Goal
 
 
     //return a string to save object
-    public override string GetDataToSave()
+    public override string Save()
     {
-        return ($"Checklist Goal: {_goalName},{_goalDescription},{_goalAssociatedPoints},{_totalPoints},{_checkListGoalCount},{_checkListGoalCount}");
+        return ($"Checklist Goal:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_totalPoints},{_checkListGoalCount},{_checkListGoalCount}");
     }
 
 }
