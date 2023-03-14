@@ -5,17 +5,21 @@ class Program
 {
     static void Main(string[] args)
     {
-        //its benn called here to be used to load a file in menu 4
-        var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);                
+        //store the total points of the user to save in the file in menu 3
+        int totalPoints = 1;
+
+        //will get the user prompt for a file name to load
+        var loadFile ="";
+
 
         //instatiate a simple goal to be used when user chooses to create a new goal
         List<Goal> goals = new List<Goal>();
 
 
-        //store the total points of the user to save in the file in menu 3
-        int totalPoints = 1;
-        
-        
+        //its benn called here to be used to load a file in menu 4
+        var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);                
+
+
         //displays menu as long the user does not quit the program
         string menuChoice = "";
         while (menuChoice != "6")
@@ -70,17 +74,11 @@ class Program
 
             //if user chooses to list the goals
             else if (menuChoice == "2")
-            {
-                
-                /*if(goals == null)
-                {
-                    Console.Write(newSimpleGoal.GoalFromFile());
-                }*/
-
+            {               
                 foreach(Goal goal in goals)
                 {
                     goal.DisplayListOfGoal();
-                }       
+                }  
             }
             
             //if user chooses to save as file
@@ -104,7 +102,7 @@ class Program
             else if (menuChoice == "4")
             {
                 Console.Write("what is the name of your file? ");
-                var loadFile = Console.ReadLine();
+                loadFile = Console.ReadLine();
                 
                 newSimpleGoal.Load(loadFile);
             }
