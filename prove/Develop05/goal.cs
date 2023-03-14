@@ -51,6 +51,7 @@ public abstract class Goal
     public abstract void SetListOfGoal();
 
 
+    //should return total points (UNDER DEVELOPMENT)
     public int GetTotalPoints()
     {
         return _totalPoints;
@@ -61,14 +62,7 @@ public abstract class Goal
     public abstract void DisplayListOfGoal();
 
 
-    //displays the itens in the file
-    public void DisplayListOfGoalInFile()
-    {
-        // TOD DO: IMPLEMENTAR - CAN BE USED TO LIST THE CONTENT OF A FILE
-    }
-
-
-    //return text as should appear when saved as a file
+    //return text format to save as a file
     public abstract string Save();
 
 
@@ -84,18 +78,28 @@ public abstract class Goal
     }
 
 
-    public void GoalFromFile()
-    {
+     /*split between goal type and goal content | split between goal name, description and associated points |
+     also displays the goals that are inside a file */
+    public void DisplayListOfGoalInFile(string file)
+     {
+        string[] parts;
         string first = " ";
         string second = " ";
-        string[] lines = System.IO.File.ReadAllLines("teste.txt");
+        string[] lines = System.IO.File.ReadAllLines(file);
         for(int i = 1; i < lines.Count();i++)
         {
-            string[] parts = lines[i].Split(":");
+            //split between goal type and content
+            parts = lines[i].Split(":");
             first = parts[0];
             second = parts[1];
-            Console.WriteLine($"{first} {second}");
+
+            //split between goal name, descrition and points
+            string[] secondparts = second.Split(",");
+            _goalName = secondparts[0];
+            _goalDescription = secondparts[1];
+            _goalAssociatedPoints = secondparts[2];
+
+            Console.WriteLine($"The goals are:\n [{" "}] {_goalName} ({_goalDescription} {_goalAssociatedPoints})");
         }
     }
-
 }
