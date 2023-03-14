@@ -14,6 +14,8 @@ public class SimpleGoal : Goal
         //_isCompleted = true;
     }
 
+
+    //set list in different ways in each class
     public override void SetListOfGoal()
     {
         if (_isCompleted == true)
@@ -27,7 +29,8 @@ public class SimpleGoal : Goal
         _simpleListOfGoals.Add($"The goals are:\n [{_x}] {_goalName} ({_goalDescription})");
     }
 
-    //overrides method to display from the current list
+
+    //displays the itens in the list in different ways in each class
     public override void DisplayListOfGoal()
     {
         foreach(string item in _simpleListOfGoals)
