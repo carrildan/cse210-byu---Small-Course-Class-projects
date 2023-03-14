@@ -73,16 +73,18 @@ public abstract class Goal
 
 
     //load a file
-    public string Load(string file)
-    {
+    public void Load(string file)
+    { 
+        string first = " ";
+        string second = " ";
         string[] lines = System.IO.File.ReadAllLines(file);
-        foreach(string line in lines)
+
+        for(int i = 1; i < lines.Count();i++)
         {
-            string[] parts = line.Split(":");
-            string first = parts[0];
-            Console.WriteLine(first);
-        }
-        return "";
+            string[] parts = lines[i].Split(":");
+            first = parts[0];
+            second = parts[1];
+        }        
     }
 
 
