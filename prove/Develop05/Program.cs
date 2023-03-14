@@ -74,11 +74,12 @@ class Program
 
             //if user chooses to list the goals
             else if (menuChoice == "2")
-            {               
-                foreach(Goal goal in goals)
+            {          
+                newSimpleGoal.DisplayListOfGoalInFile(loadFile);
+                /*foreach(Goal goal in goals)
                 {
                     goal.DisplayListOfGoal();
-                }  
+                } */
             }
             
             //if user chooses to save as file
