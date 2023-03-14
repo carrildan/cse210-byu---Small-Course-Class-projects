@@ -5,10 +5,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        //store the total points of the user to save in the file in menu 3
+        //store the total points of the user to save in the file in menu 3 (UNDER DEVELOPMENT)
         int totalPoints = 1;
 
-        //will get the user prompt for a file name to load
+        /*will get the user prompt for a file name to load. 
+        Its global because it needs to be used in option 2 as well*/
         var loadFile ="";
 
 
@@ -72,13 +73,14 @@ class Program
                 }
             }
 
-            //if user chooses to list the goals
+            //if user chooses to list the goals, inside or outside a file
             else if (menuChoice == "2")
-            {               
-                foreach(Goal goal in goals)
+            {          
+                newSimpleGoal.DisplayListOfGoalInFile(loadFile);
+                /*foreach(Goal goal in goals)
                 {
                     goal.DisplayListOfGoal();
-                }  
+                } */
             }
             
             //if user chooses to save as file

@@ -3,19 +3,22 @@ using System;
 public class EternalGoal : Goal
 {
     private List<string> _eternalListOfGoal;
+
+    
     public EternalGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
         _eternalListOfGoal = new List<string>();
     }
 
 
+    //set list in different ways in each class
     public override void SetListOfGoal()
     {
         _eternalListOfGoal.Add($"The goals are:\n [ ] {_goalName} ({_goalDescription})");
     }
 
 
-    //overrides method to display from the current list
+    //displays the itens in the list in different ways in each class
     public override void DisplayListOfGoal()
     {
         {
@@ -27,11 +30,9 @@ public class EternalGoal : Goal
     }
 
 
+    //return text format to save as a file
     public override string Save()
     {
         return ($"Eternal Goal:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
     }
-
-
-
 }
