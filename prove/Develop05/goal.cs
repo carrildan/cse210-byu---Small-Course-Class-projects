@@ -61,5 +61,41 @@ public abstract class Goal
     public abstract void DisplayListOfGoal();
 
 
-    public abstract string GetDataToSave();
+    //displays the itens in the file
+    public void DisplayListOfGoalInFile()
+    {
+        // TOD DO: IMPLEMENTAR - CAN BE USED TO LIST THE CONTENT OF A FILE
+    }
+
+
+    //return text as should appear when saved as a file
+    public abstract string Save();
+
+
+    //load a file
+    public string Load(string file)
+    { 
+        string[] lines = System.IO.File.ReadAllLines(file);
+        foreach(string line in lines)
+        {
+            return line;
+        }
+        return"";         
+    }
+
+
+    public void GoalFromFile()
+    {
+        string first = " ";
+        string second = " ";
+        string[] lines = System.IO.File.ReadAllLines("teste.txt");
+        for(int i = 1; i < lines.Count();i++)
+        {
+            string[] parts = lines[i].Split(":");
+            first = parts[0];
+            second = parts[1];
+            Console.WriteLine($"{first} {second}");
+        }
+    }
+
 }
