@@ -3,14 +3,14 @@ using System;
 public class SimpleGoal : Goal
 {
     private List<string> _simpleListOfGoals;
-    private string _x;
+    private string _goalCompletedCheckMark;
     //private bool _isCompleted; // MAYBE DELETE IT AND TURN PROTECTED IN BASE CLASS
 
 
     public SimpleGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
         _simpleListOfGoals = new List<string>();
-        _x = " ";
+        _goalCompletedCheckMark = " ";
         //_isCompleted = true;
     }
 
@@ -20,13 +20,13 @@ public class SimpleGoal : Goal
     {
         if (_isCompleted == true)
         {
-            _x = "X";
+            _goalCompletedCheckMark = "X";
         }
         else
         {
-            _x = " ";
+            _goalCompletedCheckMark = " ";
         }
-        _simpleListOfGoals.Add($"The goals are:\n [{_x}] {_goalName} ({_goalDescription})");
+        _simpleListOfGoals.Add($"The goals are:\n [{_goalCompletedCheckMark}] {_goalName} ({_goalDescription})");
     }
 
 

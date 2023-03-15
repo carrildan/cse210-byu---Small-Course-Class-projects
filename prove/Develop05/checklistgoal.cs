@@ -9,16 +9,16 @@ public class CheckListGoal : Goal
     private int _goalAssociatedBonus;
 
     //sets the amount of goals that must be accomplished
-    private int _checkListGoalCompletedCount;
+    private int _eternalGoalCount;
 
     //counts the amount of goals has been accomplished
-    private int _checkListGoalCount;
+    private int _eternalGoalCompletedCount;
 
     //stores the check list goals
     private List<string> _checkListOfGoals;
 
     //checks when goal is accomplished
-    private string _x;
+    private string _goalCompletedCheckMark;
   
     //returns true if goal is completed so it marks x check
     private bool _isCompleted;
@@ -27,7 +27,7 @@ public class CheckListGoal : Goal
     public CheckListGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
         _checkListOfGoals = new List<string>();
-        _x = " ";
+        _goalCompletedCheckMark = " ";
         _isCompleted = true;
     }
 
@@ -45,7 +45,7 @@ public class CheckListGoal : Goal
         _goalAssociatedPoints = Console.ReadLine();
 
         Console.Write("\nHow many times does this goal need to be accomplished for a bonus? ");
-        _checkListGoalCount = int.Parse(Console.ReadLine());
+        _eternalGoalCount = int.Parse(Console.ReadLine());
 
         Console.Write("\nWhat is the bonus for accomplishing it that many times? ");
         _bonusPoints = int.Parse(Console.ReadLine());
@@ -57,13 +57,13 @@ public class CheckListGoal : Goal
     {
         if (_isCompleted == true)
         {
-            _x = "X";
+            _goalCompletedCheckMark = "X";
         }
         else
         {
-            _x = " ";
+            _goalCompletedCheckMark = " ";
         }
-        _checkListOfGoals.Add($"The goals are:\n [{_x}] {_goalName} ({_goalDescription}) -- Currently completed: {_checkListGoalCompletedCount}/{_checkListGoalCount}");
+        _checkListOfGoals.Add($"The goals are:\n [{_goalCompletedCheckMark}] {_goalName} ({_goalDescription}) -- Currently completed: {_eternalGoalCompletedCount}/{_eternalGoalCount}");
     }
 
 
@@ -80,7 +80,7 @@ public class CheckListGoal : Goal
     //return a string to save object
     public override string Save()
     {
-        return ($"Checklist Goal:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_totalPoints},{_checkListGoalCount},{_checkListGoalCount}");
+        return ($"Checklist Goal:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_totalPoints},{_eternalGoalCompletedCount},{_eternalGoalCount}");
     }
 
 }
