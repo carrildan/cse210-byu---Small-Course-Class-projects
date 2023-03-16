@@ -53,7 +53,7 @@ public class CheckListGoal : Goal
 
 
     //overrides method to accomodate more info in the text
-    public override void SetListOfGoal()
+    public override void AddListOfGoal()
     {
         if (_isCompleted == true)
         {
