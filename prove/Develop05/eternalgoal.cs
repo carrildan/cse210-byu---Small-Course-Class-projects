@@ -12,7 +12,7 @@ public class EternalGoal : Goal
 
 
     //set list in different ways in each class
-    public override void SetListOfGoal()
+    public override void AddListOfGoal()
     {
         _eternalListOfGoal.Add($"The goals are:\n [ ] {_goalName} ({_goalDescription})");
     }

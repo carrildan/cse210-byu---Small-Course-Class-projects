@@ -16,7 +16,7 @@ public class SimpleGoal : Goal
 
 
     //set list in different ways in each class
-    public override void SetListOfGoal()
+    public override void AddListOfGoal()
     {
         if (_isCompleted == true)
         {

@@ -18,7 +18,8 @@ class Program
 
 
         //its benn called here to be used to load a file in menu 4
-        var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);                
+        var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);         
+               
 
 
         //displays menu as long the user does not quit the program
@@ -45,7 +46,7 @@ class Program
                 {
                     //var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);                
                     newSimpleGoal.CreateGoal();
-                    newSimpleGoal.SetListOfGoal();
+                    newSimpleGoal.AddListOfGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
                     totalPoints += newSimpleGoal.GetTotalPoints();
                     goals.Add(newSimpleGoal);
@@ -56,7 +57,7 @@ class Program
                 {
                     var newEternalGoal = new EternalGoal("unknown1","unknown1","1", 0);
                     newEternalGoal.CreateGoal();
-                    newEternalGoal.SetListOfGoal();
+                    newEternalGoal.AddListOfGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
                     totalPoints += newEternalGoal.GetTotalPoints();
                     goals.Add(newEternalGoal);
@@ -66,7 +67,7 @@ class Program
                 {
                     var newCheckListGoal = new CheckListGoal("unknown2","unknown2","3", 0);
                     newCheckListGoal.CreateGoal();
-                    newCheckListGoal.SetListOfGoal();
+                    newCheckListGoal.AddListOfGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
                     totalPoints += newCheckListGoal.GetTotalPoints();
                     goals.Add(newCheckListGoal);
@@ -112,6 +113,8 @@ class Program
             //if user chooses to load a file
             else if (menuChoice == "4")
             {
+                goals.Remove(newSimpleGoal);
+                
                 Console.Write("what is the name of your file? ");
                 loadFile = Console.ReadLine();
                 
