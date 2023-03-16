@@ -102,4 +102,12 @@ public abstract class Goal
             Console.WriteLine($"The goals are:\n [{" "}] {_goalName} ({_goalDescription} {_goalAssociatedPoints})");
         }
     }
+
+
+    /*record an event
+    public void RecordEvent()
+    {
+        Console.WriteLine($"1. {_goalName}");
+        //string fileLoaded = DisplayListOfGoalInFile();
+    }*/
 }

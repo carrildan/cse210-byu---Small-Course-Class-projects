@@ -75,12 +75,21 @@ class Program
 
             //if user chooses to list the goals, inside or outside a file
             else if (menuChoice == "2")
-            {          
-                newSimpleGoal.DisplayListOfGoalInFile(loadFile);
-                /*foreach(Goal goal in goals)
+            {        
+                if(loadFile != "")  
                 {
-                    goal.DisplayListOfGoal();
-                } */
+                    foreach(Goal goal in goals)
+                    {
+                        goal.DisplayListOfGoalInFile(loadFile);
+                    }
+                }
+                else
+                {
+                foreach(Goal goal in goals)
+                    {
+                        goal.DisplayListOfGoal();
+                    } 
+                }
             }
             
             //if user chooses to save as file
@@ -107,7 +116,18 @@ class Program
                 loadFile = Console.ReadLine();
                 
                 newSimpleGoal.Load(loadFile);
+                goals.Add(newSimpleGoal);
             }
+
+            /*if user chooses to record an event
+            else if (menuChoice == "5")
+            {
+                foreach(Goal goal in goals)
+                {
+                    //goal.DisplayListOfGoalInFile(loadFile);
+                    goal.RecordEvent();
+                }
+            }*/
         }
     }
 }
