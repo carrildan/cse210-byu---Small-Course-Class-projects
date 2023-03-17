@@ -15,7 +15,7 @@ public class CheckListGoal : Goal
     private int _eternalGoalCompletedCount;
 
     //stores the check list goals
-    private List<string> _checkListOfGoals;
+    //private List<string> _checkListOfGoals;
 
     //checks when goal is accomplished
     private string _goalCompletedCheckMark;
@@ -26,7 +26,7 @@ public class CheckListGoal : Goal
 
     public CheckListGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
-        _checkListOfGoals = new List<string>();
+        //_checkListOfGoals = new List<string>();
         _goalCompletedCheckMark = " ";
         _isCompleted = true;
     }
@@ -53,7 +53,7 @@ public class CheckListGoal : Goal
 
 
     //overrides method to accomodate more info in the text
-    public override void AddListOfGoal()
+    public override string GetListOfGoal()
     {
         if (_isCompleted == true)
         {
@@ -63,17 +63,19 @@ public class CheckListGoal : Goal
         {
             _goalCompletedCheckMark = " ";
         }
-        _checkListOfGoals.Add($"The goals are:\n [{_goalCompletedCheckMark}] {_goalName} ({_goalDescription}) -- Currently completed: {_eternalGoalCompletedCount}/{_eternalGoalCount}");
+        //_checkListOfGoals.Add($"The goals are:\n [{_goalCompletedCheckMark}] {_goalName} ({_goalDescription}) -- Currently completed: {_eternalGoalCompletedCount}/{_eternalGoalCount}");
+        return ($"The goals are:\n [{_goalCompletedCheckMark}] {_goalName} ({_goalDescription}) -- Currently completed: {_eternalGoalCompletedCount}/{_eternalGoalCount}"); 
     }
 
 
     //overrides method to display from the current list
     public override void DisplayListOfGoal()
     {
-        foreach(string item in _checkListOfGoals)
+        /*foreach(string item in _simpleListOfGoals)
         {
             Console.WriteLine(item);
-        }
+        }*/
+        Console.WriteLine(GetListOfGoal());
     }
 
 

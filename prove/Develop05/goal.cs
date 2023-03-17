@@ -48,7 +48,7 @@ public abstract class Goal
 
 
     //set list in different ways in each class
-    public abstract void AddListOfGoal();
+    public abstract string GetListOfGoal();
 
 
     //should return total points (UNDER DEVELOPMENT)
