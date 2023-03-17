@@ -46,7 +46,7 @@ class Program
                 {
                     //var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);                
                     newSimpleGoal.CreateGoal();
-                    newSimpleGoal.AddListOfGoal();
+                    newSimpleGoal.GetListOfGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
                     totalPoints += newSimpleGoal.GetTotalPoints();
                     goals.Add(newSimpleGoal);
@@ -57,7 +57,7 @@ class Program
                 {
                     var newEternalGoal = new EternalGoal("unknown1","unknown1","1", 0);
                     newEternalGoal.CreateGoal();
-                    newEternalGoal.AddListOfGoal();
+                    newEternalGoal.GetListOfGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
                     totalPoints += newEternalGoal.GetTotalPoints();
                     goals.Add(newEternalGoal);
@@ -67,7 +67,7 @@ class Program
                 {
                     var newCheckListGoal = new CheckListGoal("unknown2","unknown2","3", 0);
                     newCheckListGoal.CreateGoal();
-                    newCheckListGoal.AddListOfGoal();
+                    newCheckListGoal.GetListOfGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
                     totalPoints += newCheckListGoal.GetTotalPoints();
                     goals.Add(newCheckListGoal);
