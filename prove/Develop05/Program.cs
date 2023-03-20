@@ -119,7 +119,7 @@ class Program
                 loadFile = Console.ReadLine();
                 
                 newSimpleGoal.Load(loadFile);
-                goals.Add(newSimpleGoal);
+                //goals.Add(newSimpleGoal);
             }
 
             /*if user chooses to record an event
