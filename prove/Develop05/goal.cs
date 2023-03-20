@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public abstract class Goal
 {
+    protected string _goalType;
     //name of the goal
     protected string _goalName;
 
@@ -21,6 +22,11 @@ public abstract class Goal
     //check if goal is completed
     protected bool _isCompleted;
 
+
+    public Goal(string line)
+    {
+        
+    }
 
     public Goal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints)
     {
@@ -67,14 +73,27 @@ public abstract class Goal
 
 
     //load a file
-    public string Load(string file)
+    public List<Goal> Load(string file)
     { 
         string[] lines = System.IO.File.ReadAllLines(file);
+        var list = new List<Goal>();
         foreach(string line in lines)
         {
-            return line;
+            var goalType = "Simple";
+            switch(goalType) {
+                case "Simple": list.Add(new SimpleGoal(line));
+                break;
+
+                /*case "Eternal": list.Add(new EternalGoal(line));
+                break;
+
+                case "CheckList": list.Add(new EternalGoal(line));
+                break;*/
+
+                default: break;
+            }
         }
-        return"";         
+        return list;      
     }
 
 
