@@ -10,7 +10,7 @@ public class SimpleGoal : Goal
     public SimpleGoal(string line) : base(line)
     {
         _goalType = "Simple Goal";
-        /*var first = line.Split(":");
+        var first = line.Split(":");
         foreach(string word in first)
         {
             if(word == "Simple Goal")
@@ -21,31 +21,20 @@ public class SimpleGoal : Goal
             {
                 _totalPoints = int.Parse(word);
             }
-        }*/
-      
-        
-        /*var first = line.Split(":");
-        var words = first[0];
-        for(int i = 0; i < first.Length; i++)
-        {
-            if (first[i] == "101")
-            {
-                _totalPoints = int.Parse(first[i]);
-            }
-        }*/
+        }
 
         var last = line.Split(",");
         for(int i = 0; i < last.Length; i++)
         {
-            if (last[i] == "elisangela")
+            if (last[i] == "scriptures")
             {
                 _goalName = last[i];
             }
-            else if(last[i] == "carril")
+            else if(last[i] == "study the scriptures")
             {
                 _goalDescription = last[i];
             }
-            else if(last[i] == "101")
+            else if(last[i] == "10")
             {
                 _totalPoints = int.Parse(last[i]);
             }
@@ -92,6 +81,6 @@ public class SimpleGoal : Goal
     //return a string to save object
     public override string Save()
     {
-       return ($"{_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
+       return ($"Simple Goal:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
     }
 }
