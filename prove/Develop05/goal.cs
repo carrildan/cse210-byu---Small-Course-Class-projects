@@ -25,7 +25,27 @@ public abstract class Goal
 
     public Goal(string line)
     {
+        //specifies the type for this goal
+        _goalType = "Simple Goal";
+
+        //stores the right side of the split(name, description etc)
+        var second = "";
+
+        //stores the left side of the split(type)
+        var firstSplit = line.Split(":");
         
+        foreach(string word in firstSplit)
+        {
+            _goalType = firstSplit[0];
+            second = firstSplit[1];
+        }
+
+        var last = second.Split(",");
+        for(int i = 0; i < last.Length; i++)
+        {
+            _goalName = last[0];
+            _goalDescription = last[1];
+        }    
     }
 
     public Goal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints)
@@ -87,8 +107,8 @@ public abstract class Goal
             switch(goalType) {
                 case "Simple": list.Add(new SimpleGoal(lines[i]));
                 break;
-
-                /*case "Eternal": list.Add(new EternalGoal(line));
+                /*
+                case "Eternal": list.Add(new EternalGoal(lines));
                 break;
 
                 case "CheckList": list.Add(new EternalGoal(line));
