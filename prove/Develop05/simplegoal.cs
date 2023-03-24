@@ -9,7 +9,7 @@ public class SimpleGoal : Goal
 
     public SimpleGoal(string line) : base(line)
     {
-            
+        _goalType = "Simple Goal";
     }
 
     public SimpleGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
