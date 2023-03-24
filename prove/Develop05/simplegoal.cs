@@ -11,32 +11,37 @@ public class SimpleGoal : Goal
     {
         _goalType = "Simple Goal";
         var first = line.Split(":");
+        
         foreach(string word in first)
         {
             if(word == "Simple Goal")
             {
                 _goalType = word;
             }
-            else if(word == "101")
+            else if(word == "10")
             {
                 _totalPoints = int.Parse(word);
+            }
+            else if(word == "daniel")
+            {
+                _goalName = word;
             }
         }
 
         var last = line.Split(",");
-        for(int i = 0; i < last.Length; i++)
+        for(int i = 1; i < last.Length; i++)
         {
-            if (last[i] == "scriptures")
-            {
-                _goalName = last[i];
-            }
-            else if(last[i] == "study the scriptures")
+            if(last[i] == "carril")
             {
                 _goalDescription = last[i];
             }
             else if(last[i] == "10")
             {
                 _totalPoints = int.Parse(last[i]);
+            }
+            else if(last[i] == "daniel")
+            {
+                _goalName = last[i];
             }
         }    
     }
@@ -52,6 +57,7 @@ public class SimpleGoal : Goal
     //set list in different ways in each class
     public override string GetListOfGoal()
     {
+        
         if (_isCompleted == true)
         {
             _goalCompletedCheckMark = "X";
@@ -60,8 +66,8 @@ public class SimpleGoal : Goal
         {
             _goalCompletedCheckMark = " ";
         }
-        //_simpleListOfGoals.Add($"The goals are:\n [{_goalCompletedCheckMark}] {_goalName} ({_goalDescription})");
-        return ($"The goals are:\n [{_goalCompletedCheckMark}] {_goalName} ({_goalDescription})");
+        
+        return ($"[{_goalCompletedCheckMark}] {_goalName} ({_goalDescription})");
 
 
     }
@@ -70,17 +76,14 @@ public class SimpleGoal : Goal
     //displays the itens in the list in different ways in each class
     public override void DisplayListOfGoal()
      {
-        /*foreach(string item in _simpleListOfGoals)
-        {
-            Console.WriteLine(item);
-        }*/
         Console.WriteLine(GetListOfGoal());
+        //Console.WriteLine($"You have {GetTotalPoints()} points.\n");
     }
 
 
     //return a string to save object
     public override string Save()
     {
-       return ($"Simple Goal:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
+       return ($"Simple Goal:,{_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
     }
 }
