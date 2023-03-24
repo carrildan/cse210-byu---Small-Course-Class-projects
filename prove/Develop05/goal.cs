@@ -26,7 +26,7 @@ public abstract class Goal
     public Goal(string line)
     {
         //specifies the type for this goal
-        _goalType = "Simple Goal";
+        
 
         //stores the right side of the split(name, description etc)
         var second = "";
