@@ -79,11 +79,13 @@ public abstract class Goal
     { 
         string[] lines = System.IO.File.ReadAllLines(file);
         var list = new List<Goal>();
-        foreach(string line in lines)
+
+        for(int i = 1; i < lines.Length; i++)
+        //foreach(string line in lines)
         {
             var goalType = "Simple";
             switch(goalType) {
-                case "Simple": list.Add(new SimpleGoal(line));
+                case "Simple": list.Add(new SimpleGoal(lines[i]));
                 break;
 
                 /*case "Eternal": list.Add(new EternalGoal(line));
