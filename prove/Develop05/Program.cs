@@ -8,6 +8,9 @@ class Program
         //store the total points of the user to save in the file in menu 3 (UNDER DEVELOPMENT)
         int totalPoints = 1;
 
+
+        
+
         /*will get the user prompt for a file name to load. 
         Its global because it needs to be used in option 2 as well*/
         var loadFile ="";
@@ -18,7 +21,7 @@ class Program
 
 
         //its benn called here to be used to load a file in menu 4
-        var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);         
+        //var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);         
                
 
 
@@ -44,7 +47,7 @@ class Program
                 //if user chooses to create a new simple goal
                 if (submenuChoice == "1")
                 {
-                    //var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);                
+                    var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 0);                
                     newSimpleGoal.CreateGoal();
                     newSimpleGoal.GetListOfGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
@@ -77,21 +80,18 @@ class Program
             //if user chooses to list the goals, inside or outside a file
             else if (menuChoice == "2")
             {        
-                if(loadFile != "")  
-                {
-                    foreach(Goal goal in goals)
-                    {
-                        goal.DisplayListOfGoalInFile(loadFile);
-                    }
-                }
-                else
-                {
+                //represents the number of each goal in the List option
+                int numOfGoal = 1;
                 foreach(Goal goal in goals)
-                    {
-                        goal.DisplayListOfGoal();
-                    } 
-                }
+                {
+                    Console.Write($"{numOfGoal}. ");
+                    goal.DisplayListOfGoal();
+                    totalPoints = goal.GetTotalPoints();
+                    numOfGoal += 1;
+                } 
+                Console.WriteLine($"\nYou have {totalPoints} points.\n");
             }
+            
             
             //if user chooses to save as file
             else if (menuChoice == "3")
@@ -113,12 +113,20 @@ class Program
             //if user chooses to load a file
             else if (menuChoice == "4")
             {
-                goals.Remove(newSimpleGoal);
+                //goals.Remove(newSimpleGoal);
                 
                 Console.Write("what is the name of your file? ");
                 loadFile = Console.ReadLine();
                 
-                newSimpleGoal.Load(loadFile);
+                var loading = Goal.Load(loadFile);
+                foreach(Goal goal in loading)
+                {
+                    goals.Add(goal);
+                }
+                
+                
+               
+               
                 //goals.Add(newSimpleGoal);
             }
 

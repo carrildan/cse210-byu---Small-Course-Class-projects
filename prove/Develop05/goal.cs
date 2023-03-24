@@ -50,6 +50,8 @@ public abstract class Goal
 
         Console.Write("\nWhat is the amount of points associated with this goal? ");
         _goalAssociatedPoints = Console.ReadLine();
+
+        Console.WriteLine($"\nYou have {GetTotalPoints()} points.\n");
     }
 
 
@@ -73,7 +75,7 @@ public abstract class Goal
 
 
     //load a file
-    public List<Goal> Load(string file)
+    public static List<Goal> Load(string file)
     { 
         string[] lines = System.IO.File.ReadAllLines(file);
         var list = new List<Goal>();
@@ -99,7 +101,7 @@ public abstract class Goal
 
      /*split between goal type and goal content | split between goal name, description and associated points |
      also displays the goals that are inside a file */
-    public void DisplayListOfGoalInFile(string file)
+    /*public void DisplayListOfGoalInFile(string file)
      {
         string[] parts;
         string first = " ";
@@ -120,7 +122,7 @@ public abstract class Goal
 
             Console.WriteLine($"The goals are:\n [{" "}] {_goalName} ({_goalDescription} {_goalAssociatedPoints})");
         }
-    }
+    }*/
 
 
     /*record an event
