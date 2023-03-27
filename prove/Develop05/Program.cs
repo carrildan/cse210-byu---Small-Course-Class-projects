@@ -87,7 +87,7 @@ class Program
                 foreach(Goal goal in goals)
                 {
                     Console.Write($"{numOfGoal}. ");
-                    goal.DisplayListOfGoal();
+                    goal.DisplayGoal();
                     totalPoints = goal.GetTotalPoints();
                     numOfGoal += 1;
                 } 
