@@ -66,8 +66,8 @@ public abstract class Goal
     }
 
 
-    //displays the itens in the list in different ways in each class
-    public abstract void DisplayListOfGoal();
+    //displays goal different ways in each class
+    public abstract void DisplayGoal();
 
 
     //return a string with data to save object

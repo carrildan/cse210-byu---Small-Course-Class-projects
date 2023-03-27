@@ -58,8 +58,8 @@ public class SimpleGoal : Goal
 
 
     //displays the itens in the list in different ways in each class
-    public override void DisplayListOfGoal()
-     {
+    public override void DisplayGoal()
+    {
         Console.WriteLine(GetGoal());
         //Console.WriteLine($"You have {GetTotalPoints()} points.\n");
     }
