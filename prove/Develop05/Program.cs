@@ -8,6 +8,9 @@ class Program
         //store the total points of the user to save in the file in menu 3 (UNDER DEVELOPMENT)
         int totalPoints = 1;
 
+        //represents the number of each goal in the List option
+        int numOfGoal = 1;
+
 
         
 
@@ -49,7 +52,7 @@ class Program
                 {
                     var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 0);                
                     newSimpleGoal.CreateGoal();
-                    newSimpleGoal.GetListOfGoal();
+                    newSimpleGoal.GetGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
                     totalPoints += newSimpleGoal.GetTotalPoints();
                     goals.Add(newSimpleGoal);
@@ -60,7 +63,7 @@ class Program
                 {
                     var newEternalGoal = new EternalGoal("unknown1","unknown1","1", 0);
                     newEternalGoal.CreateGoal();
-                    newEternalGoal.GetListOfGoal();
+                    newEternalGoal.GetGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
                     totalPoints += newEternalGoal.GetTotalPoints();
                     goals.Add(newEternalGoal);
@@ -70,7 +73,7 @@ class Program
                 {
                     var newCheckListGoal = new CheckListGoal("unknown2","unknown2","3", 0);
                     newCheckListGoal.CreateGoal();
-                    newCheckListGoal.GetListOfGoal();
+                    newCheckListGoal.GetGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
                     totalPoints += newCheckListGoal.GetTotalPoints();
                     goals.Add(newCheckListGoal);
@@ -80,8 +83,7 @@ class Program
             //if user chooses to list the goals, inside or outside a file
             else if (menuChoice == "2")
             {        
-                //represents the number of each goal in the List option
-                int numOfGoal = 1;
+                
                 foreach(Goal goal in goals)
                 {
                     Console.Write($"{numOfGoal}. ");
@@ -123,22 +125,24 @@ class Program
                 {
                     goals.Add(goal);
                 }
-                
-                
-               
-               
-                //goals.Add(newSimpleGoal);
             }
 
-            /*if user chooses to record an event
+            //if user chooses to record an event
             else if (menuChoice == "5")
             {
                 foreach(Goal goal in goals)
                 {
-                    //goal.DisplayListOfGoalInFile(loadFile);
-                    goal.RecordEvent();
+                    Console.Write($"{numOfGoal}. ");
+                    goal.GetGoalName();
+                    //goal.RecordEvent(); (UNDER DEVELOPMENT)
+                    numOfGoal += 1;
                 }
-            }*/
+
+                Console.Write("Which goal did you accomplish? ");
+                string user = Console.ReadLine();
+
+                //if(user == )
+            }
         }
     }
 }
