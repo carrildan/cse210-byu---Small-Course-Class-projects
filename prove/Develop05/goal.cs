@@ -25,27 +25,7 @@ public abstract class Goal
 
     public Goal(string line)
     {
-        //specifies the type for this goal
         
-
-        //stores the right side of the split(name, description etc)
-        var second = "";
-
-        //stores the left side of the split(type)
-        var firstSplit = line.Split(":");
-        
-        foreach(string word in firstSplit)
-        {
-            _goalType = firstSplit[0];
-            second = firstSplit[1];
-        }
-
-        var last = second.Split(",");
-        for(int i = 0; i < last.Length; i++)
-        {
-            _goalName = last[0];
-            _goalDescription = last[1];
-        }    
     }
 
     public Goal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints)
@@ -75,8 +55,8 @@ public abstract class Goal
     }
 
 
-    //set list in different ways in each class
-    public abstract string GetListOfGoal();
+    //returns a goal
+    public abstract string GetGoal();
 
 
     //should return total points (UNDER DEVELOPMENT)
@@ -90,67 +70,50 @@ public abstract class Goal
     public abstract void DisplayListOfGoal();
 
 
-    //return text format to save as a file
+    //return a string with data to save object
     public abstract string Save();
 
 
-    //load a file
+    //load a file and separate it into different types of goal
     public static List<Goal> Load(string file)
     { 
         string[] lines = System.IO.File.ReadAllLines(file);
         var list = new List<Goal>();
 
-        for(int i = 1; i < lines.Length; i++)
-        //foreach(string line in lines)
-        {
-            var goalType = "Simple";
-            switch(goalType) {
-                case "Simple": list.Add(new SimpleGoal(lines[i]));
-                break;
-                /*
-                case "Eternal": list.Add(new EternalGoal(lines));
-                break;
+        var goalType = "";
+        for(int i = 1; i < lines.Length; i++)       
+        {            
+            //gets the type of goals and add a new goal according to its type
+            var spliting = (lines[i].Split(":"));
+            goalType = spliting[0];
+                      
+                switch(goalType) {
+                    case "Simple Goal": list.Add(new SimpleGoal(lines[i]));
+                    break;
+                    
+                    case "Eternal Goal": list.Add(new EternalGoal(lines[i]));
+                    break;
 
-                case "CheckList": list.Add(new EternalGoal(line));
-                break;*/
+                    case "CheckList Goal": list.Add(new CheckListGoal(lines[i]));
+                    break;
 
-                default: break;
+                    default: break;
             }
         }
         return list;      
     }
 
 
-     /*split between goal type and goal content | split between goal name, description and associated points |
-     also displays the goals that are inside a file */
-    /*public void DisplayListOfGoalInFile(string file)
-     {
-        string[] parts;
-        string first = " ";
-        string second = " ";
-        string[] lines = System.IO.File.ReadAllLines(file);
-        for(int i = 1; i < lines.Count();i++)
-        {
-            //split between goal type and content
-            parts = lines[i].Split(":");
-            first = parts[0];
-            second = parts[1];
-
-            //split between goal name, descrition and points
-            string[] secondparts = second.Split(",");
-            _goalName = secondparts[0];
-            _goalDescription = secondparts[1];
-            _goalAssociatedPoints = secondparts[2];
-
-            Console.WriteLine($"The goals are:\n [{" "}] {_goalName} ({_goalDescription} {_goalAssociatedPoints})");
-        }
-    }*/
-
-
-    /*record an event
-    public void RecordEvent()
+    //displays the name of the goals in a file
+    public void GetGoalName()
     {
-        Console.WriteLine($"1. {_goalName}");
-        //string fileLoaded = DisplayListOfGoalInFile();
-    }*/
+        Console.WriteLine($"{_goalName}");
+    }
+
+
+    //record an event
+    public void RecordEvent()
+    {        
+        //Console.WriteLine("Which goal did you acomplish? ");
+    }
 }
