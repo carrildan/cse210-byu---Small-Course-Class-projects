@@ -6,7 +6,7 @@ class Program
     static void Main(string[] args)
     {
         //store the total points of the user to save in the file in menu 3 (UNDER DEVELOPMENT)
-        int totalPoints = 1;
+        int totalPoints = 0;
 
         //represents the number of each goal in the List option
         int numOfGoal = 1;
@@ -54,18 +54,18 @@ class Program
                     newSimpleGoal.CreateGoal();
                     newSimpleGoal.GetGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
-                    totalPoints += newSimpleGoal.GetTotalPoints();
+                    //totalPoints += newSimpleGoal.GetTotalPoints();
                     goals.Add(newSimpleGoal);
                 } 
 
                 //if user chooses to create an eternal goal
                 else if (submenuChoice == "2")
                 {
-                    var newEternalGoal = new EternalGoal("unknown1","unknown1","1", 0);
+                    var newEternalGoal = new EternalGoal("unknown1","unknown1","0", 0);
                     newEternalGoal.CreateGoal();
                     newEternalGoal.GetGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
-                    totalPoints += newEternalGoal.GetTotalPoints();
+                    //totalPoints += newEternalGoal.GetTotalPoints();
                     goals.Add(newEternalGoal);
                 }  
 
@@ -75,7 +75,7 @@ class Program
                     newCheckListGoal.CreateGoal();
                     newCheckListGoal.GetGoal();
                     //sets user´s totalpoints as local variable to be saved in the file
-                    totalPoints += newCheckListGoal.GetTotalPoints();
+                    //totalPoints += newCheckListGoal.GetTotalPoints();
                     goals.Add(newCheckListGoal);
                 }
             }
@@ -83,15 +83,14 @@ class Program
             //if user chooses to list the goals, inside or outside a file
             else if (menuChoice == "2")
             {        
-                
+                numOfGoal = 1;
                 foreach(Goal goal in goals)
                 {
                     Console.Write($"{numOfGoal}. ");
                     goal.DisplayGoal();
-                    totalPoints = goal.GetTotalPoints();
                     numOfGoal += 1;
                 } 
-                Console.WriteLine($"\nYou have {totalPoints} points.\n");
+                Console.WriteLine($"\nYou have {totalPoints} points.\n");          
             }
             
             
@@ -114,9 +113,7 @@ class Program
 
             //if user chooses to load a file
             else if (menuChoice == "4")
-            {
-                //goals.Remove(newSimpleGoal);
-                
+            {                
                 Console.Write("what is the name of your file? ");
                 loadFile = Console.ReadLine();
                 
@@ -124,24 +121,41 @@ class Program
                 foreach(Goal goal in loading)
                 {
                     goals.Add(goal);
+                    totalPoints = goal.GetTotalPoints();
                 }
             }
+            
 
             //if user chooses to record an event
             else if (menuChoice == "5")
             {
+                //restart the goal counting
+                numOfGoal = 1;
+
                 foreach(Goal goal in goals)
                 {
                     Console.Write($"{numOfGoal}. ");
                     goal.GetGoalName();
-                    //goal.RecordEvent(); (UNDER DEVELOPMENT)
                     numOfGoal += 1;
                 }
 
-                Console.Write("Which goal did you accomplish? ");
+                Console.Write("Which goal did you acomplish? ");
                 string user = Console.ReadLine();
+                int userInt = int.Parse(user);       
 
-                //if(user == )
+                //record event according to its type(called by each class)
+                foreach(Goal goal in goals)
+                {
+                    //there´s a bug that duplicate the sum, so I had to put this line to stop duplicating until finding the bug
+                    totalPoints -= goal.GetTotalPoints();
+                    
+                    goal.RecordEvent(userInt);
+                    totalPoints += goal.GetTotalPoints();
+                }
+                
+                
+                
+                
             }
         }
     }
