@@ -148,10 +148,13 @@ class Program
                 {
                     //there´s a bug that duplicate the sum, so I had to put this line to stop duplicating until finding the bug
                     totalPoints -= goal.GetTotalPoints();
-                    
+
                     goal.RecordEvent(userInt);
                     totalPoints += goal.GetTotalPoints();
                 }
+
+                //displays the total points
+                Console.WriteLine($"You now have {totalPoints} points");
                 
                 
                 
