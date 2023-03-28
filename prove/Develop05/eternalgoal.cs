@@ -37,7 +37,6 @@ public class EternalGoal : Goal
     //returns a goal (it never ends, so it does not check with x mark)
     public override string GetGoal()
     {
-        //_eternalListOfGoal.Add($"The goals are:\n [ ] {_goalName} ({_goalDescription})");
         return ($"[ ] {_goalName} ({_goalDescription})");
     }
 
@@ -59,14 +58,7 @@ public class EternalGoal : Goal
     //record an event
     public override void RecordEvent()
     {
-        
-        
-            _totalPoints += int.Parse(_goalAssociatedPoints);
-            DisplayCompletedGoalMessage();
-        
-      
-    }
-
-
-    
+        _totalPoints += int.Parse(_goalAssociatedPoints);
+        DisplayCompletedGoalMessage();
+    } 
 }

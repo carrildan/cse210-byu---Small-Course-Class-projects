@@ -11,21 +11,12 @@ class Program
         //represents the number of each goal in the List option
         int numOfGoal = 1;
 
-
-        
-
         /*will get the user prompt for a file name to load. 
         Its global because it needs to be used in option 2 as well*/
         var loadFile ="";
 
-
         //instatiate a simple goal to be used when user chooses to create a new goal
         List<Goal> goals = new List<Goal>();
-
-
-        //its benn called here to be used to load a file in menu 4
-        //var newSimpleGoal = new SimpleGoal("unknown","unknown","0", 100);         
-               
 
 
         //displays menu as long the user does not quit the program
@@ -37,7 +28,6 @@ class Program
             Console.Write("Select a choice from the menu: ");
             menuChoice = Console.ReadLine();
 
-             
             //if user chooses to create a new goal
             if (menuChoice == "1")
             {
@@ -150,19 +140,8 @@ class Program
                 goals[userInt].RecordEvent();
                 totalPoints += goals[userInt].GetTotalPoints();
 
-                //record event according to its type(called by each class)
-                /*foreach(Goal goal in goals)
-                {
-                    //there´s a bug that duplicate the sum, so I had to put this line to stop duplicating until finding the bug
-                    totalPoints -= goal.GetTotalPoints();
-
-                    goal.RecordEvent(userInt);
-                    totalPoints += goal.GetTotalPoints();
-                }*/
-
                 //displays the total points
                 Console.WriteLine($"You now have {totalPoints} points");
-       
             }
         }
     }

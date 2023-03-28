@@ -14,18 +14,14 @@ public class CheckListGoal : Goal
     //counts the amount of goals has been accomplished
     private int _eternalGoalCompletedCount;
 
-    //stores the check list goals
-    //private List<string> _checkListOfGoals;
-
     //checks when goal is accomplished
     private string _goalCompletedCheckMark;
   
     public CheckListGoal(string line) : base(line)
     {
-        _goalType = "CheckList Goal";
         //specifies the type for this goal
+        _goalType = "CheckList Goal";
         
-
         //stores the right side of the split(name, description etc)
         var second = "";
 
@@ -46,9 +42,9 @@ public class CheckListGoal : Goal
             _goalAssociatedPoints = last[2];
             _goalAssociatedBonus = int.Parse(last[3]);
             _eternalGoalCount = int.Parse(last[4]);
-            
         }    
     }
+    
 
     public CheckListGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
@@ -107,6 +103,7 @@ public class CheckListGoal : Goal
         return ($"{_goalType}:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_bonusPoints},{_eternalGoalCount},{_eternalGoalCompletedCount}");
     }
 
+
     public void BonusMessage()
     {
         Console.WriteLine($"CONGRATULATIONS! YOU JUST GOT {_goalAssociatedBonus} points of bonus");
@@ -116,23 +113,16 @@ public class CheckListGoal : Goal
     //record an event
     public override void RecordEvent()
     {
-        
-             
-            _totalPoints += int.Parse(_goalAssociatedPoints);
-            DisplayCompletedGoalMessage();
-            _eternalGoalCompletedCount += 1;
-            
-
-            //when user reaches goals count it marks as completed
-            if(_eternalGoalCompletedCount == _eternalGoalCount)
-            {
-                _totalPoints += _goalAssociatedBonus;
-                _isCompleted = true;
-                BonusMessage();
-            }
-        
-    }
-
+        _totalPoints += int.Parse(_goalAssociatedPoints);
+        DisplayCompletedGoalMessage();
+        _eternalGoalCompletedCount += 1;
     
-
+        //when user reaches goals count it marks as completed
+        if(_eternalGoalCompletedCount == _eternalGoalCount)
+        {
+            _totalPoints += _goalAssociatedBonus;
+            _isCompleted = true;
+            BonusMessage();
+        }
+    }
 }

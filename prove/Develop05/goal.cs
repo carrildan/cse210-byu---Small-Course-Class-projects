@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 public abstract class Goal
 {
+    //type of the goal
     protected string _goalType;
+ 
     //name of the goal
     protected string _goalName;
 
@@ -55,7 +57,7 @@ public abstract class Goal
     public abstract string GetGoal();
 
 
-    //should return total points (UNDER DEVELOPMENT)
+    //should return total points
     public int GetTotalPoints()
     {
         return _totalPoints;
