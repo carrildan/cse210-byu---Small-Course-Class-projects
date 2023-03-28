@@ -30,7 +30,6 @@ public abstract class Goal
         _goalName = goalName;
         _goalDescription = goalDescription;
         _goalAssociatedPoints = goalAssociatedPoints;
-        _totalPoints = totalPoints;
         //_listOfGoals = new List<string>();
         //_isCompleted = false;
     }
@@ -115,8 +114,7 @@ public abstract class Goal
     //displays a message when user records an event
     public void DisplayCompletedGoalMessage()
     {
+        GetTotalPoints();
         Console.WriteLine($"Congratulations! You have earned {_goalAssociatedPoints} points!");
-        
-        Console.WriteLine($"You now have {_totalPoints} points");
     }
 }

@@ -37,7 +37,7 @@ public class SimpleGoal : Goal
         _goalCompletedCheckMark = " ";
         //_isCompleted = true;
         _goalType = "Simple Goal";
-        _totalPoints = totalPoints;
+
     }
 
 

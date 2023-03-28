@@ -115,6 +115,7 @@ public class CheckListGoal : Goal
             _totalPoints += int.Parse(_goalAssociatedPoints);
             DisplayCompletedGoalMessage();
             _eternalGoalCompletedCount += 1;
+            
 
             //when user reaches goals count it marks as completed
             if(_eternalGoalCompletedCount == _eternalGoalCount)
