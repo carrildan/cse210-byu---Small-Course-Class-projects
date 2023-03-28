@@ -108,7 +108,7 @@ public abstract class Goal
 
 
     //record an event
-    public abstract void RecordEvent(int user);
+    public abstract void RecordEvent();
     
 
     //displays a message when user records an event
