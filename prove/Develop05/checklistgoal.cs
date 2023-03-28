@@ -44,6 +44,7 @@ public class CheckListGoal : Goal
             _goalName = last[0];
             _goalDescription = last[1];
             _goalAssociatedPoints = last[2];
+            _goalAssociatedBonus = int.Parse(last[3]);
             _eternalGoalCount = int.Parse(last[4]);
             
         }    
@@ -106,6 +107,11 @@ public class CheckListGoal : Goal
         return ($"{_goalType}:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_bonusPoints},{_eternalGoalCount},{_eternalGoalCompletedCount}");
     }
 
+    public void BonusMessage()
+    {
+        Console.WriteLine($"CONGRATULATIONS! YOU JUST GOT {_goalAssociatedBonus} points of bonus");
+    }
+
 
     //record an event
     public override void RecordEvent(int user)
@@ -122,6 +128,7 @@ public class CheckListGoal : Goal
             {
                 _totalPoints += _bonusPoints;
                 _isCompleted = true;
+                BonusMessage();
             }
         }
     }
