@@ -74,14 +74,14 @@ public class SimpleGoal : Goal
 
 
     //record an event
-    public override void RecordEvent(int user)
+    public override void RecordEvent()
     {
-        if(user == 1)
-        {        
+        
+                
             _totalPoints += int.Parse(_goalAssociatedPoints);
             DisplayCompletedGoalMessage();
             _isCompleted = true;
-        }
+        
     }
 
 

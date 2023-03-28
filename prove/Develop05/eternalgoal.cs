@@ -57,13 +57,13 @@ public class EternalGoal : Goal
 
 
     //record an event
-    public override void RecordEvent(int user)
+    public override void RecordEvent()
     {
-        if(user == 2)
-        {        
+        
+        
             _totalPoints += int.Parse(_goalAssociatedPoints);
             DisplayCompletedGoalMessage();
-        }
+        
       
     }
 

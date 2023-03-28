@@ -114,10 +114,10 @@ public class CheckListGoal : Goal
 
 
     //record an event
-    public override void RecordEvent(int user)
+    public override void RecordEvent()
     {
-        if(user == 3)
-        {        
+        
+             
             _totalPoints += int.Parse(_goalAssociatedPoints);
             DisplayCompletedGoalMessage();
             _eternalGoalCompletedCount += 1;
@@ -130,7 +130,7 @@ public class CheckListGoal : Goal
                 _isCompleted = true;
                 BonusMessage();
             }
-        }
+        
     }
 
     
