@@ -143,22 +143,26 @@ class Program
                 string user = Console.ReadLine();
                 int userInt = int.Parse(user);       
 
+                //this is used because the userInt index is one digit ahead(dont know why) and subtracting by 1 is working.
+                userInt -= 1;
+
+                //totalPoints -= goals[userInt].GetTotalPoints();
+                goals[userInt].RecordEvent();
+                totalPoints += goals[userInt].GetTotalPoints();
+
                 //record event according to its type(called by each class)
-                foreach(Goal goal in goals)
+                /*foreach(Goal goal in goals)
                 {
                     //there´s a bug that duplicate the sum, so I had to put this line to stop duplicating until finding the bug
                     totalPoints -= goal.GetTotalPoints();
 
                     goal.RecordEvent(userInt);
                     totalPoints += goal.GetTotalPoints();
-                }
+                }*/
 
                 //displays the total points
                 Console.WriteLine($"You now have {totalPoints} points");
-                
-                
-                
-                
+       
             }
         }
     }
