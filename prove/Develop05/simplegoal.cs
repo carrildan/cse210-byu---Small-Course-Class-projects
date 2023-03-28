@@ -3,7 +3,6 @@ using System;
 public class SimpleGoal : Goal
 {
     private string _goalCompletedCheckMark;
-    //private bool _isCompleted; // MAYBE DELETE IT AND TURN PROTECTED IN BASE CLASS
 
 
     public SimpleGoal(string line) : base(line)
@@ -35,7 +34,6 @@ public class SimpleGoal : Goal
     public SimpleGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
         _goalCompletedCheckMark = " ";
-        //_isCompleted = true;
         _goalType = "Simple Goal";
     }
 
@@ -57,11 +55,10 @@ public class SimpleGoal : Goal
     }
 
 
-    //displays the itens in the list in different ways in each class
+    //displays goal different ways in each class
     public override void DisplayGoal()
     {
         Console.WriteLine(GetGoal());
-        //Console.WriteLine($"You have {GetTotalPoints()} points.\n");
     }
 
 
@@ -70,4 +67,13 @@ public class SimpleGoal : Goal
     {
         return ($"{_goalType}:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
     }
+
+
+    //record an event
+    public override void RecordEvent()
+    {
+        _totalPoints += int.Parse(_goalAssociatedPoints);
+        DisplayCompletedGoalMessage();
+        _isCompleted = true;
+    } 
 }

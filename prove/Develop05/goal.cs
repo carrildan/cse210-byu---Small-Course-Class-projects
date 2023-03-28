@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 public abstract class Goal
 {
+    //type of the goal
     protected string _goalType;
+ 
     //name of the goal
     protected string _goalName;
 
@@ -15,9 +17,6 @@ public abstract class Goal
 
     //stores the total points earned
     protected int _totalPoints;
-
-    //holds a list of goals
-    //private List<string> _listOfGoals;
 
     //check if goal is completed
     protected bool _isCompleted;
@@ -33,7 +32,6 @@ public abstract class Goal
         _goalName = goalName;
         _goalDescription = goalDescription;
         _goalAssociatedPoints = goalAssociatedPoints;
-        _totalPoints = totalPoints;
         //_listOfGoals = new List<string>();
         //_isCompleted = false;
     }
@@ -59,14 +57,14 @@ public abstract class Goal
     public abstract string GetGoal();
 
 
-    //should return total points (UNDER DEVELOPMENT)
+    //should return total points
     public int GetTotalPoints()
     {
         return _totalPoints;
     }
 
 
-    //displays goal different ways in each class
+    //displays goal in different ways in each class
     public abstract void DisplayGoal();
 
 
@@ -104,7 +102,7 @@ public abstract class Goal
     }
 
 
-    //displays the name of the goals in a file
+    //displays the name of the goals in a file when called by program.cs
     public void GetGoalName()
     {
         Console.WriteLine($"{_goalName}");
@@ -112,8 +110,13 @@ public abstract class Goal
 
 
     //record an event
-    public void RecordEvent()
-    {        
-        //Console.WriteLine("Which goal did you acomplish? ");
+    public abstract void RecordEvent();
+    
+
+    //displays a message when user records an event
+    public void DisplayCompletedGoalMessage()
+    {
+        GetTotalPoints();
+        Console.WriteLine($"Congratulations! You have earned {_goalAssociatedPoints} points!");
     }
 }
