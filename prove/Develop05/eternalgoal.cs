@@ -2,13 +2,10 @@ using System;
 
 public class EternalGoal : Goal
 {
-    //private List<string> _eternalListOfGoal;
-
      public EternalGoal(string line) : base(line)
     {
-        _goalType = "Eternal Goal";
         //specifies the type for this goal
-        
+        _goalType = "Eternal Goal";   
 
         //stores the right side of the split(name, description etc)
         var second = "";
@@ -28,19 +25,16 @@ public class EternalGoal : Goal
             _goalName = last[0];
             _goalDescription = last[1];
             _goalAssociatedPoints = last[2];
-            
         }    
     }
 
     public EternalGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
         _goalType = "Eternal Goal";
-
-        //_eternalListOfGoal = new List<string>();
     }
 
 
-    //returns a goal
+    //returns a goal (it never ends, so it does not check with x mark)
     public override string GetGoal()
     {
         //_eternalListOfGoal.Add($"The goals are:\n [ ] {_goalName} ({_goalDescription})");
@@ -60,4 +54,19 @@ public class EternalGoal : Goal
     {
         return ($"{_goalType}:{_goalName},{_goalDescription},{_goalAssociatedPoints}");
     }
+
+
+    //record an event
+    public override void RecordEvent(int user)
+    {
+        if(user == 2)
+        {        
+            _totalPoints += int.Parse(_goalAssociatedPoints);
+            DisplayCompletedGoalMessage();
+        }
+      
+    }
+
+
+    
 }

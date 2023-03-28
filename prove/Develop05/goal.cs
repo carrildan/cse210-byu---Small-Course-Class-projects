@@ -16,9 +16,6 @@ public abstract class Goal
     //stores the total points earned
     protected int _totalPoints;
 
-    //holds a list of goals
-    //private List<string> _listOfGoals;
-
     //check if goal is completed
     protected bool _isCompleted;
 
@@ -66,7 +63,7 @@ public abstract class Goal
     }
 
 
-    //displays goal different ways in each class
+    //displays goal in different ways in each class
     public abstract void DisplayGoal();
 
 
@@ -104,7 +101,7 @@ public abstract class Goal
     }
 
 
-    //displays the name of the goals in a file
+    //displays the name of the goals in a file when called by program.cs
     public void GetGoalName()
     {
         Console.WriteLine($"{_goalName}");
@@ -112,8 +109,14 @@ public abstract class Goal
 
 
     //record an event
-    public void RecordEvent()
-    {        
-        //Console.WriteLine("Which goal did you acomplish? ");
+    public abstract void RecordEvent(int user);
+    
+
+    //displays a message when user records an event
+    public void DisplayCompletedGoalMessage()
+    {
+        Console.WriteLine($"Congratulations! You have earned {_goalAssociatedPoints} points!");
+        
+        Console.WriteLine($"You now have {_totalPoints} points");
     }
 }

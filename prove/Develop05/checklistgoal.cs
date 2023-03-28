@@ -20,9 +20,6 @@ public class CheckListGoal : Goal
     //checks when goal is accomplished
     private string _goalCompletedCheckMark;
   
-    //returns true if goal is completed so it marks x check
-    private bool _isCompleted;
-
     public CheckListGoal(string line) : base(line)
     {
         _goalType = "CheckList Goal";
@@ -47,13 +44,13 @@ public class CheckListGoal : Goal
             _goalName = last[0];
             _goalDescription = last[1];
             _goalAssociatedPoints = last[2];
+            _eternalGoalCount = int.Parse(last[4]);
             
         }    
     }
 
     public CheckListGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
-        //_checkListOfGoals = new List<string>();
         _goalCompletedCheckMark = " ";
         _isCompleted = false;
         _goalType = "CheckList Goal";
@@ -108,5 +105,26 @@ public class CheckListGoal : Goal
     {
         return ($"{_goalType}:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_bonusPoints},{_eternalGoalCount},{_eternalGoalCompletedCount}");
     }
+
+
+    //record an event
+    public override void RecordEvent(int user)
+    {
+        if(user == 3)
+        {        
+            _totalPoints += int.Parse(_goalAssociatedPoints);
+            DisplayCompletedGoalMessage();
+            _eternalGoalCompletedCount += 1;
+
+            //when user reaches goals count it marks as completed
+            if(_eternalGoalCompletedCount == _eternalGoalCount)
+            {
+                _totalPoints += _bonusPoints;
+                _isCompleted = true;
+            }
+        }
+    }
+
+    
 
 }

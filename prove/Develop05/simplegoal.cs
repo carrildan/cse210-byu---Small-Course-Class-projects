@@ -37,6 +37,7 @@ public class SimpleGoal : Goal
         _goalCompletedCheckMark = " ";
         //_isCompleted = true;
         _goalType = "Simple Goal";
+        _totalPoints = totalPoints;
     }
 
 
@@ -57,7 +58,7 @@ public class SimpleGoal : Goal
     }
 
 
-    //displays the itens in the list in different ways in each class
+    //displays goal different ways in each class
     public override void DisplayGoal()
     {
         Console.WriteLine(GetGoal());
@@ -70,4 +71,19 @@ public class SimpleGoal : Goal
     {
         return ($"{_goalType}:{_goalName},{_goalDescription},{_goalAssociatedPoints},{_isCompleted}");
     }
+
+
+    //record an event
+    public override void RecordEvent(int user)
+    {
+        if(user == 1)
+        {        
+            _totalPoints += int.Parse(_goalAssociatedPoints);
+            DisplayCompletedGoalMessage();
+            _isCompleted = true;
+        }
+    }
+
+
+    
 }
