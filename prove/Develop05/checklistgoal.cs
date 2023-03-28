@@ -126,7 +126,7 @@ public class CheckListGoal : Goal
             //when user reaches goals count it marks as completed
             if(_eternalGoalCompletedCount == _eternalGoalCount)
             {
-                _totalPoints += _bonusPoints;
+                _totalPoints += _goalAssociatedBonus;
                 _isCompleted = true;
                 BonusMessage();
             }
