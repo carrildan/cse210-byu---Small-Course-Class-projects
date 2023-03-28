@@ -1,5 +1,6 @@
 using System;
 
+
 public class CheckListGoal : Goal
 {
     //bonus for completing a goal
@@ -17,6 +18,7 @@ public class CheckListGoal : Goal
     //checks when goal is accomplished
     private string _goalCompletedCheckMark;
   
+    
     public CheckListGoal(string line) : base(line)
     {
         //specifies the type for this goal
@@ -44,7 +46,7 @@ public class CheckListGoal : Goal
             _eternalGoalCount = int.Parse(last[4]);
         }    
     }
-    
+
 
     public CheckListGoal(string goalName, string goalDescription, string goalAssociatedPoints, int totalPoints) : base(goalName, goalDescription, goalAssociatedPoints, totalPoints)
     {
@@ -104,9 +106,24 @@ public class CheckListGoal : Goal
     }
 
 
+    //EXCEED REQUIREMENTS: A BONUS MESSAGE
     public void BonusMessage()
     {
-        Console.WriteLine($"CONGRATULATIONS! YOU JUST GOT {_goalAssociatedBonus} points of bonus");
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(3);
+
+        List<string> loading = new List<string>(){"B","O","N","U","S", " "};
+        for (int i = 3; i > 0; i--)
+            foreach(var item in loading)
+            {
+                Console.Write(item);
+                Thread.Sleep(100);
+                if (item == "G")
+                    //erase the text when hits G then start over
+                    Console.Write("\r" + new string(' ',Console.WindowWidth) + "\r");
+            }
+           
+        Console.WriteLine($"\nCONGRATULATIONS! YOU JUST GOT {_goalAssociatedBonus} points of bonus");
     }
 
 
