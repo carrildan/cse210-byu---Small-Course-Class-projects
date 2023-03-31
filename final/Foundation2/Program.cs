@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation2 World!");
+        Product product = new Product("television",150, 100, 5);
+        Console.Write(product.GetProductPrice());
     }
 }
