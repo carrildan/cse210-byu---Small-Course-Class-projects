@@ -52,22 +52,24 @@ public class Order
             }
             
         }
-        return ($"TOTAL PRICE: ${totalPrice}");
+        return ($"\nTOTAL PRICE: ${totalPrice}");
     }
 
 
     //return a packing label
     public void PackingLabel()
     {
+        Console.WriteLine("\nYOUR ORDER\nPacking Label:");
+
         foreach(Product item in _listOfProducts)
         {
-            Console.WriteLine($"Packing label:\nProduct: {item.GetProductName()} - ID: {item.GetProductId()}");
+            Console.WriteLine($"Product: {item.GetProductName()} - ID: {item.GetProductId()}");
         }
     }      
 
 
     public void ShippingLabel()
     {
-        Console.WriteLine($"Shipping Label:\nName: {_customer.GetCustomer()}\nAddress:\n{_customer.GetAdress()}");
+        Console.WriteLine($"\nShipping Label:\nName: {_customer.GetCustomer()}\nAddress:\n{_customer.GetAdress()}");
     }
 }
