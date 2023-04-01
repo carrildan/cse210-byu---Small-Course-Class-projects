@@ -4,16 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        Product product = new Product("television",150, 100, 5);     
-
-            
+        //creates a new customer
         Customer customer = new Customer("Daniel");
-        customer.SetAddress("daniel street","valencia","Valencia","valenciana","spain");
-        Console.Write(customer.GetAdress());
-        Console.WriteLine($"\n{customer.CustomerInUsa()}");
+        customer.SetAddress("daniel street","valencia","Valencia","valenciana","USA");
         
 
-
-        
+        //creates a new order
+        Order order = new Order();
+        order.SetProduct(new Product("television",150, 100, 200.50));
+        order.SetCustomer(customer);
+        order.PackingLabel();  
     }
 }
