@@ -73,16 +73,16 @@ public class Event
     }
 
 
-    //displays the standard message
-    public void StandardDetailsMessage()
+     public string GetAddresses()
     {
-        Console.WriteLine($"Standard details message:\nTitle: {_eventTitle}\n{_eventDescription}\nDate: {_eventDate.ToLongDateString()}\nTime: {_eventTime.ToShortTimeString()}pm\n\nAddress\n{_eventAddress.GetAddresses()}");
+        return _eventAddress.GetAddresses();
     }
 
 
-    public string GetAddresses()
+    //displays the standard message
+    public void StandardDetailsMessage()
     {
-        return _eventAddress.GetAddresses();
+        Console.WriteLine($"\nStandard details message:\nTitle: {_eventTitle}\n{_eventDescription}\nDate: {_eventDate.ToLongDateString()}\nTime: {_eventTime.ToShortTimeString()}pm\nAddress\n{_eventAddress.GetAddresses()}");
     }
 
 
