@@ -15,7 +15,7 @@ public class Event
     private TimeOnly _eventTime;
 
     //address for an event
-    //private Address _eventAddress;
+    private Addresses _eventAddress;
 
     //type of the event
     private string _eventType;
@@ -29,6 +29,35 @@ public class Event
     }
 
 
+    public string GetTitle()
+    {
+        return _eventTitle;
+    }
+
+
+    public string GetDescription()
+    {
+        return _eventDescription;
+    }
+
+
+    public string GetType()
+    {
+        return _eventType;
+    }
+
+
+    public DateTime GetDate()
+    {
+        return _eventDate;
+    }
+
+
+    public TimeOnly GetTime()
+    {
+        return _eventTime;
+    }
+
     //sets the date and time of an event
     public void SetEventDateAndTime(DateTime date, TimeOnly time)
     {
@@ -37,23 +66,36 @@ public class Event
     }
 
 
+    //sets the properties for  _costomerAddress
+    public void SetAddresses(string street, string city, string state, string province)
+    {
+        _eventAddress = new Addresses(street,city,state,province);
+    }
+
+
     //displays the standard message
     public void StandardDetailsMessage()
     {
-        Console.WriteLine($"Standard details message:\nTitle: {_eventTitle}\n{_eventDescription}\nDate: {_eventDate.ToLongDateString()}\nTime: {_eventTime.ToShortTimeString()}pm\n");
+        Console.WriteLine($"Standard details message:\nTitle: {_eventTitle}\n{_eventDescription}\nDate: {_eventDate.ToLongDateString()}\nTime: {_eventTime.ToShortTimeString()}pm\n\nAddress\n{_eventAddress.GetAddresses()}");
+    }
+
+
+    public string GetAddresses()
+    {
+        return _eventAddress.GetAddresses();
     }
 
 
     //displays the short description message
     public void ShortDescriptionMessage()
     {
-        Console.WriteLine($"Short description message:\n{_eventType}\nTitle: {_eventTitle}\nDate: {_eventDate.ToLongDateString()}\n");
+        Console.WriteLine($"Short description message:\n{_eventType} event\nTitle: {_eventTitle}\nDate: {_eventDate.ToLongDateString()}\n");
     }
 
 
     //displays the full details message
-    public void FullDetailsMessage()
+    public virtual void FullDetailsMessage()
     {
-        
+        Console.WriteLine($"Standard details message:\n{_eventType}\nTitle: {_eventTitle}\n{_eventDescription}\nDate: {_eventDate.ToLongDateString()}\nTime: {_eventTime.ToShortTimeString()}pm\nAddress\n{_eventAddress.GetAddresses()}");
     }
 }
