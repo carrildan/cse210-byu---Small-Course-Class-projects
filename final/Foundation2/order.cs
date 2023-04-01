@@ -37,7 +37,7 @@ public class Order
 
 
     //calculate the total cost of the order
-    public double TotalCost()
+    public string TotalCost()
     {
         double totalPrice = 0.0;
         foreach(Product item in _listOfProducts)
@@ -52,7 +52,7 @@ public class Order
             }
             
         }
-        return totalPrice;
+        return ($"TOTAL PRICE: ${totalPrice}");
     }
 
 
@@ -61,7 +61,13 @@ public class Order
     {
         foreach(Product item in _listOfProducts)
         {
-            Console.WriteLine($"Packing label: Product: {item.GetProductName()} - {item.GetProductId()} - total price: {TotalCost()}");
+            Console.WriteLine($"Packing label:\nProduct: {item.GetProductName()} - ID: {item.GetProductId()}");
         }
     }      
+
+
+    public void ShippingLabel()
+    {
+        Console.WriteLine($"Shipping Label:\nName: {_customer.GetCustomer()}\nAddress:\n{_customer.GetAdress()}");
+    }
 }
