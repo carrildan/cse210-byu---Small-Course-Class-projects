@@ -29,4 +29,18 @@ public class Product
     {
         return _unitPrice * _productQuantity;
     }
+
+
+    //returns the name of a product
+    public string GetProductName()
+    {
+        return _productName;
+    }
+
+
+    //returns the id of a product
+    public int GetProductId()
+    {
+        return _productId;
+    }
 }
