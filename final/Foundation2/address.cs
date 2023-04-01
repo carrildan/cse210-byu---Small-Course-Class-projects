@@ -28,7 +28,7 @@ public class Address
     }
 
 
-    //returns a string in the address format
+    //returns a string in an address format
     public string GetAddress()
     {
         return ($"Street: {_street}\nCity: {_city}\nState: {_state}\nProvince. {_province}\nCountry: {_country}");
