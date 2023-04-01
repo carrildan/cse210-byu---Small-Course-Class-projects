@@ -18,5 +18,13 @@ class Program
         reception.StandardDetailsMessage();
         reception.ShortDescriptionMessage();
         reception.FullDetailsMessage();
+
+
+        OutdoorGatherings outdoor = new OutdoorGatherings("The president's birthday party.","Celebration of the 45th aniversary of the president of the country.","Outdoor Gathering","Sunny");
+        outdoor.SetAddresses("daniel street","New York","NY","Manhatan");
+        outdoor.SetEventDateAndTime(new System.DateTime(2023, 4, 1), new System.TimeOnly(1,30));
+        outdoor.StandardDetailsMessage();
+        outdoor.ShortDescriptionMessage();
+        outdoor.FullDetailsMessage();
     }
 }
