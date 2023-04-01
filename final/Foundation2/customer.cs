@@ -15,6 +15,12 @@ public class Customer
     }
 
 
+    public string GetCustomer()
+    {
+        return _customerName;
+    }
+
+
     //sets the properties for  _costomerAddress
     public void SetAddress(string street, string city, string state, string province, string country)
     {
