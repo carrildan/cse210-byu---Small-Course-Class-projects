@@ -29,34 +29,40 @@ public class Event
     }
 
 
+    //returns the title of the event 
     public string GetTitle()
     {
         return _eventTitle;
     }
 
 
+    //returns the description of the vent
     public string GetDescription()
     {
         return _eventDescription;
     }
 
 
+    //returns the type of the event
     public string GetType()
     {
         return _eventType;
     }
 
 
+    //returns the date of the event
     public DateTime GetDate()
     {
         return _eventDate;
     }
 
 
+    //returns the time of the event
     public TimeOnly GetTime()
     {
         return _eventTime;
     }
+
 
     //sets the date and time of an event
     public void SetEventDateAndTime(DateTime date, TimeOnly time)

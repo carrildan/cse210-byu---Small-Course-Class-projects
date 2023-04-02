@@ -2,6 +2,7 @@ using System;
 
 public class Receptions : Event
 {
+    //holds an email address
     private string _rsvp;
 
 
@@ -11,6 +12,7 @@ public class Receptions : Event
     }
 
 
+    //displays full detail
     public override void FullDetailsMessage()
     {
         Console.Write($"Full details message:\n{GetType()} event\nTitle: {GetTitle()}\n{GetDescription()}\nDate: {GetDate().ToLongDateString()}\nTime: {GetTime().ToShortTimeString()}pm\nAddress\n{GetAddresses()}");

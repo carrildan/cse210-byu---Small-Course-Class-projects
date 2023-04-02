@@ -12,6 +12,7 @@ public class OutdoorGatherings : Event
     }
 
 
+    //displays full detail
     public override void FullDetailsMessage()
     {
         Console.WriteLine($"Full details message:\n{GetType()} event\nTitle: {GetTitle()}\n{GetDescription()}\nDate: {GetDate().ToLongDateString()}\nTime: {GetTime().ToShortTimeString()}pm\nAddress\n{GetAddresses()}");
